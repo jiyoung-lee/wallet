@@ -1,0 +1,24 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "cd client && npm install",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.6"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "concurrently": "^3.5.1",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.2",
+    "express-mysql-session": "^2.1.0",
+    "mysql": "^2.17.1",
+    "web3": "^1.2.4"
+  }
+}
