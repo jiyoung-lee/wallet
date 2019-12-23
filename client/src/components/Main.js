@@ -22,7 +22,7 @@ class Main extends Component {
             method: 'GET'
         })
             .then(res => res.json())
-            .then(mypage => this.setState({ mypage }, () => console.log('mypage fetched...', mypage)));
+            .then(mypage => this.setState({ mypage }));
     }
     logOut() {
         axios
@@ -37,14 +37,14 @@ class Main extends Component {
     getEther() {
         axios
             .post('https://faucet.metamask.io/', {
-                public_key: this.state.mypage.public_key
+                public_key: this.state.mypage
             })
             .then(res => {
-                if(res.status === 202) {
-                    axios.post('/main/deposit'),{
-                        addr: JSON.stringify(res)
-                    }
-                }
+                // if(res.status === 202) {
+                //     axios.post('/main/deposit'),{
+                //         addr: JSON.stringify(res)
+                //     }
+                // }
             })
             .catch(err => {
                 console.log(err);
@@ -62,18 +62,18 @@ class Main extends Component {
                                 <strong>Address : </strong>{my.public_key}<br />
                                 <strong>Balance : </strong>{my.balance} ETH<br />
                                 <strong>txList : </strong>
-                                {my.txhash_list[0]}<br />
-                                {my.txhash_list[1]}<br />
-                                {my.txhash_list[2]}<br />
+                                <a href={"https://ropsten.etherscan.io/tx/" + my.txhash_list[0]}>{my.txhash_list[0]}</a><br />
+                                <a href={"https://ropsten.etherscan.io/tx/" + my.txhash_list[1]}>{my.txhash_list[1]}</a><br />
+                                <a href={"https://ropsten.etherscan.io/tx/" + my.txhash_list[2]}>{my.txhash_list[2]}</a><br />
                             </p>
                         )}
                     </ul>
                     <button type="button" onClick={this.getEther}>이더 얻기</button>
+                    <button type="button" onClick={this.logOut} >로그아웃</button>
                 </form>
                 <div>
                     <button type="button"><Link to="/privatekey">{'Privatekey'}</Link></button>
                     <button type="button"><Link to="/send">{'Send'}</Link></button>
-                    <button type="button" onClick={this.logOut} >로그아웃</button>
                 </div>
             </Home>
         );
