@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Header from './Layout/Header';
 import Router from './Routes/Routes';
-import Add from './components/Add';
 
 const Layout = styled.div`
   margin: 0 auto;
@@ -19,7 +18,6 @@ class App extends Component {
           <Header />
           <Router />
         </Layout>
-        <Add/>
       </div>
     );
   }

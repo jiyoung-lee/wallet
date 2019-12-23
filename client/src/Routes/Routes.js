@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Index, Create, Main, Send, Privatekey, Test } from './index';
+import { Index, Create, Main, Send, Privatekey } from './index';
 
 const Router = () => (
     <Switch>
@@ -9,7 +9,6 @@ const Router = () => (
         <Route path="/main" component={Main} />
         <Route path="/send" component={Send} />
         <Route path="/privatekey" component={Privatekey} />
-        <Route path="/test" component={Test} />
     </Switch>
 );
 

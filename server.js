@@ -1,7 +1,7 @@
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 
-const testRouter = require('./routes/test');
 const indexRouter = require('./routes/index');
 const createRouter = require('./routes/create');
 const mainRouter = require('./routes/main');
@@ -24,13 +24,17 @@ app.use(session({
     saveUninitialized: true,
     store: new MySQLStore(db.info)
 }));
-app.use('/', testRouter);
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/create', createRouter);
 app.use('/main', mainRouter);
 app.use('/send', sendRouter);
 app.use('/privatekey', privatekeyRouter);
 
 const port = 5000;
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    next(createError(404));
+});
 
 app.listen(port, () => `Server running on port ${port}`);

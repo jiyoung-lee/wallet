@@ -22,12 +22,10 @@ router.post('/login_process', function (req, res) {
               req.session.public_key = result[0].public_key;
               req.session.save(function () {
                   console.log(req.session.public_key)
-                  //return res.redirect('/main')
                   return res.status(202).json({})
               });
           } else {
-              //return res.redirect('/err')
-              return res.status(200).json({});
+                return res.status(200).json({});
           }
       })
 
