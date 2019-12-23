@@ -14,6 +14,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
     if (!is_logined) {
         return res.redirect('/')
     }
+    return res.render('Privatekey');
 })
 
 router.post('/account', function (req, res) {

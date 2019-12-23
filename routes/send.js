@@ -16,6 +16,7 @@ router.get('/', function (req, res) {
   if (is_logined !== true) {
     return res.redirect('/')
   }
+  res.render('Send');
 });
 
 router.post('/send_process', async function (req, res) {

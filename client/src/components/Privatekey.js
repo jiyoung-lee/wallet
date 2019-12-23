@@ -30,7 +30,7 @@ class Privatekey extends Component {
                     alert("아이디 및 비밀번호를 다시 확인해주세요.")
                 }
                 else if(res.status === 202) {
-                    alert('로그인 성공')
+                    alert('성공')
                     console.log(res.result)
                     console.log(res.result.privatekey)
                 }

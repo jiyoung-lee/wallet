@@ -29,8 +29,9 @@ router.get('/', async function (req, res) {
         for (i = 0; i < result.length; i++) {
             txhash_list.push(result[i].txhash)
         }
-        return res.render({ userid, public_key, balance, txhash_list });
-    })
+        const mypage = [{ userid, public_key, balance, txhash_list }];
+        return res.json(mypage);
+    });
 });
 
 router.get('/session_destroy', function (req, res) {
