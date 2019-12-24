@@ -16,7 +16,6 @@ router.get('/', function (req, res) {
   if (is_logined !== true) {
     return res.redirect('/')
   }
-  res.render('Send');
 });
 
 router.post('/send_process', async function (req, res) {
@@ -49,11 +48,14 @@ router.post('/send_process', async function (req, res) {
     value: web3.utils.toHex(web3.utils.toWei(value, 'ether')),
     data: ''
   }
-
+  console.log('슈바')
   let tx = new Tx(rawTx, { 'chain': 'ropsten' });
+  console.log('스바')
   tx.sign(privateKey_ran);
-
+  console.log('시바')
+  console.log(tx)
   let serializedTx = tx.serialize();
+  console.log(serializedTx)
   web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), function (err, hash) {
     if (err) {
       return res.status(203).json({});

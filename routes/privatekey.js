@@ -14,7 +14,6 @@ router.use(bodyParser.urlencoded({ extended: false }));
     if (!is_logined) {
         return res.redirect('/')
     }
-    return res.render('Privatekey');
 })
 
 router.post('/account', function (req, res) {
@@ -26,13 +25,15 @@ router.post('/account', function (req, res) {
     } else {
         bcrypt.compare(password, sessPassword, (err, value) => {
             if( value !== true ) {
-                res.status(200).json({})
+                return res.status(200).json({})
             }
             if (value === true) {
                 let decrypt = CryptoJS.AES.decrypt(private_key, '123')
                 private_key = decrypt.toString(CryptoJS.enc.Utf8)
                 console.log(private_key)
-                res.status(202).json({ 'privatekey': private_key.substring(2) })
+                const pkey = private_key.substring(2);
+                console.log(pkey)
+                return res.status(202).json(pkey);
             }
         })
     }

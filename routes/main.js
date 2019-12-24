@@ -29,7 +29,7 @@ router.get('/', async function (req, res) {
         for (i = 0; i < result.length; i++) {
             txhash_list.push(result[i].txhash)
         }
-        const mypage = [{ userid, public_key, balance, txhash_list }];
+        const mypage = { userid, public_key, balance, txhash_list };
         return res.json(mypage);
     });
 });

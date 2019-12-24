@@ -32,9 +32,4 @@ app.use('/privatekey', privatekeyRouter);
 
 const port = 5000;
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    next(createError(404));
-});
-
 app.listen(port, () => `Server running on port ${port}`);

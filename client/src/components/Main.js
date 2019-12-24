@@ -14,7 +14,8 @@ class Main extends Component {
         this.logOut = this.logOut.bind(this);
         this.getEther = this.getEther.bind(this);
         this.state = {
-            mypage: []
+            mypage: {userid: '', public_key: '', balance:'', txhash_list: []},
+            result: ''
         };
     }
     componentDidMount() {
@@ -36,38 +37,41 @@ class Main extends Component {
     }
     getEther() {
         axios
-            .post('https://faucet.metamask.io/', {
-                public_key: this.state.mypage
-            })
+            .post('https://faucet.metamask.io/', 
+                this.state.mypage.public_key
+            )
             .then(res => {
-                // if(res.status === 202) {
-                //     axios.post('/main/deposit'),{
-                //         addr: JSON.stringify(res)
-                //     }
-                // }
+                console.log('보내긴 함')
+                axios
+                    .post('/main/deposit', {
+                        result: res.data   
+                    })
+                console.log('성공')
             })
             .catch(err => {
                 console.log(err);
+                // if (err.res.status === 429){
+                //     alert('Too many request')
+                // }
+                // else if(err.res.status === 500) {
+                //     alert('Fauset ServerError')             
+                // }
             });
     }
     render() {
         return (
             <Home>
                 <h2>MyPage</h2>
-                <form>
-                    <ul>
-                        {this.state.mypage.map(my =>
-                            <p>
-                                <strong>userid : </strong>{my.userid}<br />
-                                <strong>Address : </strong>{my.public_key}<br />
-                                <strong>Balance : </strong>{my.balance} ETH<br />
-                                <strong>txList : </strong>
-                                <a href={"https://ropsten.etherscan.io/tx/" + my.txhash_list[0]}>{my.txhash_list[0]}</a><br />
-                                <a href={"https://ropsten.etherscan.io/tx/" + my.txhash_list[1]}>{my.txhash_list[1]}</a><br />
-                                <a href={"https://ropsten.etherscan.io/tx/" + my.txhash_list[2]}>{my.txhash_list[2]}</a><br />
-                            </p>
-                        )}
-                    </ul>
+                <form>      
+                    <p>
+                        <strong>userid : </strong>{this.state.mypage.userid}<br />
+                        <strong>Address : </strong>{this.state.mypage.public_key}<br />
+                        <strong>Balance : </strong>{this.state.mypage.balance} ETH<br />
+                        <strong>txList : </strong>
+                        <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>{this.state.mypage.txhash_list[0]}</a><br />
+                        <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>{this.state.mypage.txhash_list[1]}</a><br />
+                        <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>{this.state.mypage.txhash_list[2]}</a><br />
+                    </p>
                     <button type="button" onClick={this.getEther}>이더 얻기</button>
                     <button type="button" onClick={this.logOut} >로그아웃</button>
                 </form>

@@ -16,7 +16,8 @@ class Privatekey extends Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.state = {
             id: '',
-            password: ''
+            password: '',
+            pkey:''
         };
     }
     Auth() {
@@ -31,8 +32,7 @@ class Privatekey extends Component {
                 }
                 else if(res.status === 202) {
                     alert('성공')
-                    console.log(res.result)
-                    console.log(res.result.privatekey)
+                    this.setState({pkey:res.data})               
                 }
             })
             .catch(err => {
@@ -52,8 +52,9 @@ class Privatekey extends Component {
                 <div>
                     <h2>My Privatekey</h2>
                     <form>
+                        <p>{this.state.pkey}</p><br />
                         <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
-                        <input type="password" name="pw" placeholder="password" onChange={this.handleIdChange} /><br />
+                        <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} /><br />
 
                         <button type="button" onClick={this.Auth} >Auth</button>
                     </form>
