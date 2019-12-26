@@ -41,21 +41,20 @@ class Main extends Component {
                 this.state.mypage.public_key
             )
             .then(res => {
-                console.log('보내긴 함')
                 axios
                     .post('/main/deposit', {
                         result: res.data
                     })
 
             })
-            .catch(err => {
-                // if (status === 429){
-                //     alert('Too many request')
-                // }
-                // else if(status === 500) {
-                //     alert('Fauset ServerError')             
-                // }
-                console.log(err);
+            .catch(error => {
+                if (error.response.status === 429){
+                    alert('Too many request')
+                }
+                else if(error.response.status === 500) {
+                    alert('Fauset ServerError')             
+                }
+                console.log(error);
             });
 
     }

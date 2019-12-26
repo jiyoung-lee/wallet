@@ -21,7 +21,6 @@ router.get('/', function (req, res) {
 router.post('/send_process', async function (req, res) {
   let { private_key, public_key, userid } = req.session;
   let { toAddress, value, gasPrice } = req.body;
-  console.log(toAddress, value, gasPrice)
 
   let privatekey = CryptoJS.AES.decrypt(private_key, '123').toString(CryptoJS.enc.Utf8);
 

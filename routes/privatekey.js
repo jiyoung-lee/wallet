@@ -30,9 +30,7 @@ router.post('/account', function (req, res) {
             if (value === true) {
                 let decrypt = CryptoJS.AES.decrypt(private_key, '123')
                 private_key = decrypt.toString(CryptoJS.enc.Utf8)
-                console.log(private_key)
                 const pkey = private_key.substring(2);
-                console.log(pkey)
                 return res.status(202).json(pkey);
             }
         })

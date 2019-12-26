@@ -21,7 +21,6 @@ router.post('/login_process', function (req, res) {
               req.session.private_key = result[0].private_key;
               req.session.public_key = result[0].public_key;
               req.session.save(function () {
-                  console.log(req.session.public_key)
                   return res.status(202).json({})
               });
           } else {
