@@ -25,8 +25,8 @@ class Send extends Component {
         axios
             .post('/send/send_process', {
                 toAddress: this.state.toAddress,
-                value: Number(this.state.value),
-                gasPrice: Number(this.state.gasPrice)
+                value: this.state.value,
+                gasPrice: this.state.gasPrice
             })
             .then(res => {
                 if (res.status === 200) {

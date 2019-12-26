@@ -1,4 +1,3 @@
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 
@@ -24,6 +23,7 @@ app.use(session({
     saveUninitialized: true,
     store: new MySQLStore(db.info)
 }));
+
 app.use('/', indexRouter);
 app.use('/create', createRouter);
 app.use('/main', mainRouter);
@@ -33,3 +33,4 @@ app.use('/privatekey', privatekeyRouter);
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
+
