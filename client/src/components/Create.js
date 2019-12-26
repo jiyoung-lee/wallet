@@ -25,10 +25,10 @@ class Create extends Component {
                 password: this.state.password
             })
             .then(res => {
-                if (res.status === 200){
+                if (res.status === 200) {
                     alert('아이디 중복')
                 }
-                else if(res.status === 202) {
+                else if (res.status === 202) {
                     alert('계정생성 완료!')
                     window.location.href = '/'
                 }
@@ -51,12 +51,11 @@ class Create extends Component {
                     <h2>Create Account</h2>
                     <form>
                         <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
-                        <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} /><br />
-
-                        <button type="button" onClick={this.signUp} >Sign up</button>
-                    </form>
+                        <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} />
+                    </form><br />
                     <div>
-                    <button type="button"><Link to="/">{'Index'}</Link></button>
+                        <button type="button" onClick={this.signUp} >Sign up</button>
+                        <button type="button"><Link to="/">{'Index'}</Link></button>
                     </div>
                 </div>
             </SingUp>

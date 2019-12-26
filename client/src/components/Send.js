@@ -62,13 +62,12 @@ class Send extends Component {
                 <div>
                     <h2>Send</h2>
                     <form>
-                        <input type="text" name="toAddress" placeholder="받는 계정" onChange={this.handleAddressChange} /><br />
+                        <input type="text" name="toAddress" placeholder="보낼 주소" onChange={this.handleAddressChange} /><br />
                         <input type="text" name="value" placeholder="보낼 수량" onChange={this.handleValueChange} /><br />
-                        <input type="text" name="gasPrice" placeholder="수수료" onChange={this.handleGasChange} /><br />
-
-                        <button type="button" onClick={this.Spend}>Send</button>
-                    </form>
+                        <input type="text" name="gasPrice" placeholder="수수료" onChange={this.handleGasChange} />
+                    </form><br />
                     <div>
+                        <button type="button" onClick={this.Spend}>Send</button>
                         <button type="button"><Link to="/main">{'Main'}</Link></button>
                     </div>
                 </div>

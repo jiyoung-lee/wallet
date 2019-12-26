@@ -54,11 +54,10 @@ class Privatekey extends Component {
                     <form>
                         <p>{this.state.pkey}</p><br />
                         <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
-                        <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} /><br />
-
-                        <button type="button" onClick={this.Auth} >Auth</button>
-                    </form>
+                        <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} />
+                    </form><br />
                     <div>
+                        <button type="button" onClick={this.Auth} >Auth</button>
                         <button type="button"><Link to="/main">{'Main'}</Link></button>
                     </div>
                 </div>

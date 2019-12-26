@@ -14,7 +14,9 @@ class Header extends Component {
     render() {
         return (
             <Container>
-                <Search><h1>EtherWallet</h1></Search>
+                <Search>
+                    <h1>EtherWallet</h1>
+                </Search>
             </Container>
         );
     }
