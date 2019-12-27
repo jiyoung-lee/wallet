@@ -49,6 +49,9 @@ class Main extends Component {
                 this.state.mypage.public_key
             )
             .then(res => {
+                if (res.status === 200) {
+                    alert('request 1 ether from faucet')
+                }
                 axios
                     .post('/main/deposit', {
                         result: res.data
