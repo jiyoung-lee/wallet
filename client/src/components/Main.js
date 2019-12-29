@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Home = styled.div`
     width: 100%;
-    text-align: center;
+    margin: 2rem;
 `
 
 class Main extends Component {
@@ -16,7 +16,7 @@ class Main extends Component {
         this.getEther = this.getEther.bind(this);
         this.handleCopy = this.handleCopy.bind(this);
         this.state = {
-            mypage: { userid: '', public_key: '', balance: '', txhash_list: [] },
+            mypage: { userid: '', public_key: '', balance: '', txhash_list: []},
             result: '',
             btnText: 'Copy to Clipboard'
         };
@@ -70,6 +70,7 @@ class Main extends Component {
 
     }
     render() {
+
         return (
             <Home>
                 <h2>MyPage</h2>
@@ -82,9 +83,13 @@ class Main extends Component {
                         </button><br />
                         <strong>Balance : </strong>{this.state.mypage.balance} ETH<br />
                         <strong>txList : </strong><br />
-                        <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>{this.state.mypage.txhash_list[0]}</a><br />
-                        <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>{this.state.mypage.txhash_list[1]}</a><br />
-                        <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>{this.state.mypage.txhash_list[2]}</a>
+                        <ul> 
+                            <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>{this.state.mypage.txhash_list[0]}</a></li>
+                            <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>{this.state.mypage.txhash_list[1]}</a></li>
+                            <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>{this.state.mypage.txhash_list[2]}</a></li>
+                        </ul>
+                        <br />
+                        <button type="button"><Link to="/txlist">{'tx 더보기'}</Link></button>
                     </p>
                 </form><br />
                 <div>
@@ -92,6 +97,7 @@ class Main extends Component {
                     <button type="button" onClick={this.logOut} >로그아웃</button>
                     <button type="button"><Link to="/privatekey">{'Privatekey'}</Link></button>
                     <button type="button"><Link to="/send">{'Send'}</Link></button>
+                    <button type="button"><Link to="/signout">{'탈퇴'}</Link></button>
                 </div>
             </Home>
         );

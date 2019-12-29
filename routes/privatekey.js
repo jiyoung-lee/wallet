@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-  router.get('/', function (req, res, next) {
+router.get('/', function (req, res, next) {
     let { is_logined } = req.session;
     if (!is_logined) {
         return res.redirect('/')
