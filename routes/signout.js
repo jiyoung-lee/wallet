@@ -15,10 +15,11 @@ router.get('/', function (req, res, next) {
 })
 
 router.post('/signout_process', function (req, res) {
+    let { public_key, userid } = req.session;
     let { password } = req.body;
     res.status(201).json({})
 
-    // 탈퇴기능
+    // //비밀번호 조회
     // var sql = 'select * from wallet_info where userid=?'
     // db.mysql.query(sql, [id], function (err, result) {
     //     bcrypt.compare(password, result[0].password, function (err, data) {
@@ -35,6 +36,15 @@ router.post('/signout_process', function (req, res) {
     //               return res.status(200).json({});
     //         }
     //     })
+    // });
+
+    // //회원 삭제
+    // var sql = 'delete from wallet_info where userid=? and password=?'
+    // db.mysql.query(sql, [userid, hash], function (err, result) {
+    //   if (err) {
+    //     return res.status(200).json({});
+    //   }
+    //   return res.status(202).json({});
     // });
 
 });

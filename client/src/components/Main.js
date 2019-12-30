@@ -56,7 +56,6 @@ class Main extends Component {
                     .post('/main/deposit', {
                         result: res.data
                     })
-
             })
             .catch(error => {
                 if (error.response.status === 429) {
@@ -64,6 +63,9 @@ class Main extends Component {
                 }
                 else if (error.response.status === 500) {
                     alert('Fauset ServerError')
+                }
+                else if (error.response.status === 504) {
+                    alert('Gateway Timeout')
                 }
                 console.log(error);
             });
@@ -75,22 +77,20 @@ class Main extends Component {
             <Home>
                 <h2>MyPage</h2>
                 <form>
-                    <p>
-                        <strong>userid : </strong>{this.state.mypage.userid}<br />
-                        <strong>Address : </strong>{this.state.mypage.public_key}
-                        <button onClick={this.handleCopy} disabled={this.state.btnText === "Copied!"}>
-                            {this.state.btnText}
-                        </button><br />
-                        <strong>Balance : </strong>{this.state.mypage.balance} ETH<br />
-                        <strong>txList : </strong><br />
-                        <ul> 
-                            <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>{this.state.mypage.txhash_list[0]}</a></li>
-                            <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>{this.state.mypage.txhash_list[1]}</a></li>
-                            <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>{this.state.mypage.txhash_list[2]}</a></li>
-                        </ul>
-                        <br />
-                        <button type="button"><Link to="/txlist">{'tx 더보기'}</Link></button>
-                    </p>
+                    <strong>userid : </strong>{this.state.mypage.userid}<br />
+                    <strong>Address : </strong>{this.state.mypage.public_key}
+                    <button onClick={this.handleCopy} disabled={this.state.btnText === "Copied!"}>
+                        {this.state.btnText}
+                    </button><br />
+                    <strong>Balance : </strong>{this.state.mypage.balance} ETH<br />
+                    <strong>txList : </strong><br />
+                    <ul> 
+                        <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>{this.state.mypage.txhash_list[0]}</a></li>
+                        <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>{this.state.mypage.txhash_list[1]}</a></li>
+                        <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>{this.state.mypage.txhash_list[2]}</a></li>
+                    </ul>
+                    <br />
+                    <button type="button"><Link to="/txlist">{'tx 더보기'}</Link></button>
                 </form><br />
                 <div>
                     <button type="button" onClick={this.getEther}>이더 얻기</button>

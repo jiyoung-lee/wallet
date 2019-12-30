@@ -34,8 +34,10 @@ class Index extends Component {
                     window.location.href = '/main'
                 }
             })
-            .catch(err => {
-                console.log(err);
+            .catch(error => {
+                if (error.response.status === 500) {
+                    alert('존재하지 않는 회원입니다.')
+                }
             });
     }
     handleIdChange(e) {

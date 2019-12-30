@@ -15,7 +15,7 @@ router.post('/create_process', function (req, res) {
     let {id, password} = req.body;
     let password1 = bcrypt.hashSync(password)
     let privatekey1 = CryptoJS.AES.encrypt(account.privateKey,'123').toString();
-    let sql = 'insert into wallet_info(userid, password, public_key, private_key) values(?, ?, ?, ?)';
+    let sql = 'insert into wallet_info(userid, password, public_key, private_key, createDate, isDeleted, master) values(?, ?, ?, ?, now(), 0, 0)';
     db.mysql.query(sql, [id, password1, account.address, privatekey1], function (err, result) {
         if(err){
             return res.status(200).json({});
