@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.get('/', async function (req, res) {
+router.get('/', async (req, res) => {
     let { userid, public_key, is_logined } = req.session;
     if (!is_logined) {
         return res.redirect('/')
@@ -32,13 +32,13 @@ router.get('/', async function (req, res) {
     });
 });
 
-router.get('/session_destroy', function (req, res) {
+router.get('/session_destroy', (req, res) => {
     req.session.destroy();  // 세션 삭제
     res.clearCookie('sid'); // 세션 쿠키 삭제
     res.redirect('/');
 })
 
-router.post('/deposit', async function (req, res) {
+router.post('/deposit', async (req, res) => {
     let { userid } = req.session;
     let { result } = req.body;
     result = result.substring(0, 67)

@@ -28,9 +28,12 @@ class Create extends Component {
                 if (res.status === 200) {
                     alert('아이디 중복')
                 }
-                else if (res.status === 202) {
+                else if (res.status === 201) {
                     alert('계정생성 완료!')
                     window.location.href = '/'
+                }
+                else if (res.status === 202) {
+                    alert(res.data.message)
                 }
             })
             .catch(err => {

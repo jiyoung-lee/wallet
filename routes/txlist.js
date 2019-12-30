@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.get('/', async function (req, res) {
+router.get('/', async (req, res) => {
     let { userid, is_logined } = req.session;
 
     if (!is_logined) {
@@ -15,7 +15,7 @@ router.get('/', async function (req, res) {
     }
 
     var sql = 'select txhash from txhash where userid = ?'
-    db.mysql.query(sql, [userid], function (err, result) {
+    db.mysql.query(sql, [userid], (err, result) => {
         if (err) {
             return res.render('err')
         }
@@ -29,7 +29,7 @@ router.get('/', async function (req, res) {
     });
 });
 
-router.get('/session_destroy', function (req, res) {
+router.get('/session_destroy', (req, res) => {
     req.session.destroy();  // 세션 삭제
     res.clearCookie('sid'); // 세션 쿠키 삭제
     res.redirect('/');

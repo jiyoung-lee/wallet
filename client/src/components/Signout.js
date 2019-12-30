@@ -11,20 +11,23 @@ const Home = styled.div`
 class Signout extends Component {
     constructor(props) {
         super(props);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.drop = this.drop.bind(this);
+        this.handleIdChange = this.handleIdChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.state = {
+            id: '',
             password: ''
         };
     }
     drop() {
         axios
             .post('/signout/signout_process', {
+                id: this.state.id,
                 password: this.state.password
             })
             .then(res => {
                 if (res.status === 200) {
-                    alert('비밀번호가 일치하지 않습니다.')
+                    alert('아이디 및 비밀번호를 다시 확인해주세요.')
                 }
                 else if (res.status === 201) {
                     alert('정말로 탈퇴 하시겠습니까?')
@@ -38,6 +41,9 @@ class Signout extends Component {
                 console.log(err);
             });
     }
+    handleIdChange(e) {
+        this.setState({ id: e.target.value })
+    }
     handlePasswordChange(e) {
         this.setState({ password: e.target.value })
     }
@@ -47,6 +53,7 @@ class Signout extends Component {
             <Home>
                 <h2>Signout</h2>
                 <form>
+                    <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
                     <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} />
                 </form><br/>
                 <div>

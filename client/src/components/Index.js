@@ -29,14 +29,14 @@ class Index extends Component {
                 if (res.status === 200) {
                     alert('아이디 또는 비밀번호가 일치하지 않습니다.')
                 }
-                else if (res.status === 202) {
+                else if (res.status === 201) {
                     alert('로그인 성공')
                     window.location.href = '/main'
                 }
             })
             .catch(error => {
                 if (error.response.status === 500) {
-                    alert('존재하지 않는 회원입니다.')
+                    alert('존재하지 않는 회원이거나 탈퇴한 회원입니다.')
                 }
             });
     }

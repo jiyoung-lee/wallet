@@ -9,14 +9,14 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
     let { is_logined } = req.session;
     if (!is_logined) {
         return res.redirect('/')
     }
 })
 
-router.post('/account', function (req, res) {
+router.post('/account', (req, res) => {
     let { id, password } = req.body;
     let { userid, private_key } = req.session;
     let sessPassword = req.session.password;

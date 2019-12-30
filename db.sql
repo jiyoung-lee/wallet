@@ -5,6 +5,7 @@ CREATE TABLE `wallet_info` (
   `public_key` VARCHAR(255) NOT NULL,
   `private_key` VARCHAR(255) NOT NULL UNIQUE, 
   `createDate` DATETIME NOT NULL,  
+  `deleteDate` DATETIME NULL, 
   `isDeleted` INT(11) NOT NULL,  
   `master` INT(11) NOT NULL,
   PRIMARY KEY (`id`)

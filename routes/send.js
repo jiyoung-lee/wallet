@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   let { is_logined } = req.session;
 
   if (is_logined !== true) {
@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
   }
 });
 
-router.post('/send_process', async function (req, res) {
+router.post('/send_process', async (req, res) => {
   let { private_key, public_key, userid } = req.session;
   let { toAddress, value, gasPrice } = req.body;
 
@@ -52,13 +52,13 @@ router.post('/send_process', async function (req, res) {
   tx.sign(privateKey);
   let serializedTx = tx.serialize();
 
-  web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), function (err, hash) {
+  web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash) => {
     if (err) {
       return res.status(203).json({});
     }
 
     var sql = 'insert into txhash (userid, txhash) values(?, ?)'
-    db.mysql.query(sql, [userid, hash], function (err, result) {
+    db.mysql.query(sql, [userid, hash], (err, result) => {
       if (err) {
         return res.status(200).json({});
       }
