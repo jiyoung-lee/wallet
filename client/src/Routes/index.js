@@ -5,3 +5,5 @@ export { default as Send } from '../components/Send';
 export { default as Privatekey } from '../components/Privatekey'; 
 export { default as Txlist } from '../components/Txlist'; 
 export { default as Signout } from '../components/Signout'; 
+export { default as Master } from '../components/Master'; 
+export { default as Uinfo } from '../components/Uinfo'; 

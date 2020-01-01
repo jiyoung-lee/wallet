@@ -8,6 +8,8 @@ const sendRouter = require('./routes/send');
 const privatekeyRouter = require('./routes/privatekey');
 const txlistRouter = require('./routes/txlist');
 const signoutRouter = require('./routes/signout');
+const masterRouter = require('./routes/master');
+const uinfoRouter = require('./routes/uinfo');
 
 const db = require('./db/db_info')
 const session = require('express-session');
@@ -33,6 +35,9 @@ app.use('/send', sendRouter);
 app.use('/privatekey', privatekeyRouter);
 app.use('/txlist', txlistRouter);
 app.use('/signout', signoutRouter);
+app.use('/master', masterRouter);
+app.use('/uinfo', uinfoRouter);
+
 
 const port = 5000;
 

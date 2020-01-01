@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Login = styled.div`
+const Signin = styled.div`
     width: 100%;
     text-align: center;
 `
 
-class Index extends Component {
+class Master extends Component {
     constructor(props) {
         super(props);
-        this.signIn = this.signIn.bind(this);
+        this.logIn = this.logIn.bind(this);
         this.handleIdChange = this.handleIdChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.state = {
@@ -19,9 +19,9 @@ class Index extends Component {
             password: ''
         };
     }
-    signIn() {
+    logIn() {
         axios
-            .post('/login_process', {
+            .post('/master/master_process', {
                 id: this.state.id,
                 password: this.state.password
             })
@@ -30,13 +30,13 @@ class Index extends Component {
                     alert('아이디 또는 비밀번호가 일치하지 않습니다.')
                 }
                 else if (res.status === 201) {
-                    alert('로그인 성공')
-                    window.location.href = '/main'
+                    alert('Master권한 인증 완료!')
+                    window.location.href = '/uinfo'
                 }
             })
             .catch(error => {
                 if (error.response.status === 500) {
-                    alert('존재하지 않는 회원이거나 탈퇴한 회원입니다.')
+                    alert('존재하지 않는 회원입니다.')
                 }
             });
     }
@@ -48,22 +48,21 @@ class Index extends Component {
     }
     render() {
         return (
-            <Login>
+            <Signin>
                 <div>
-                    <h2>Login</h2>
+                    <h2>Master_Login</h2>
                     <form>
                         <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
                         <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} />
                     </form><br/>
                     <div>
-                        <button type="button" onClick={this.signIn} >Sign in</button>
-                        <button type="button"><Link to="/create">{'Create'}</Link></button>
-                        <button type="button"><Link to="/master">{'Master'}</Link></button>
+                        <button type="button" onClick={this.logIn} >logIn</button>
+                        <button type="button"><Link to="/">{'Index'}</Link></button>
                     </div>
                 </div>
-            </Login>
+            </Signin>
         );
     }
 }
 
-export default Index;
+export default Master;
