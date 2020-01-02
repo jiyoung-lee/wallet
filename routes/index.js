@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.post('/login_process', (req, res) => {
   let { id, password } = req.body;
 
-  var sql = 'select * from wallet_info where userid=? and isDeleted=0'
+  var sql = 'SELECT * FROM wallet_info WHERE userid=? AND isDeleted=0 AND master=0'
   db.mysql.query(sql, [id], (err, result) => {
     if(err){
       return res.status(200).json({})

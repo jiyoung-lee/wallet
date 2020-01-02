@@ -7,3 +7,5 @@ export { default as Txlist } from '../components/Txlist';
 export { default as Signout } from '../components/Signout'; 
 export { default as Master } from '../components/Master'; 
 export { default as Uinfo } from '../components/Uinfo'; 
+export { default as Usertx } from '../components/Usertx'; 
+export { default as Userout } from '../components/Userout'; 

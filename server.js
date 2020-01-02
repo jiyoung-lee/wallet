@@ -10,6 +10,8 @@ const txlistRouter = require('./routes/txlist');
 const signoutRouter = require('./routes/signout');
 const masterRouter = require('./routes/master');
 const uinfoRouter = require('./routes/uinfo');
+const usertxRouter = require('./routes/usertx');
+const useroutRouter = require('./routes/userout');
 
 const db = require('./db/db_info')
 const session = require('express-session');
@@ -37,6 +39,8 @@ app.use('/txlist', txlistRouter);
 app.use('/signout', signoutRouter);
 app.use('/master', masterRouter);
 app.use('/uinfo', uinfoRouter);
+app.use('/usertx', usertxRouter);
+app.use('/userout', useroutRouter);
 
 
 const port = 5000;

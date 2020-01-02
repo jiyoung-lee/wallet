@@ -9,13 +9,13 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get('/', async (req, res) => {
     let { is_logined } = req.session;
+
     if (!is_logined) {
         return res.redirect('/')
     }
 
-    //userInfo
-    var sql = 'select userid, date_format(createDate, "%Y-%m-%d")createDate, date_format(deleteDate,"%Y-%m-%d")deleteDate from wallet_info where master=0'
-    db.mysql.query(sql, function (err, result) {
+    var sql = 'select userid, txhash, toAddress from txhash where not userid in("1q2w3e4r") order by userid'
+    db.mysql.query(sql, (err, result) => {
         if (err) {
             return res.render('err')
         }
@@ -24,8 +24,9 @@ router.get('/', async (req, res) => {
         for (let i = 0; i < result.length; i++) {
             lists.push(result[i])
         }
-        const userpage = { lists };
-        return res.json(userpage);
+        console.log(lists)
+        const userTx = {lists};
+        return res.json(userTx);
     });
 });
 

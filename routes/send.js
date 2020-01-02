@@ -57,8 +57,8 @@ router.post('/send_process', async (req, res) => {
       return res.status(203).json({});
     }
 
-    var sql = 'insert into txhash (userid, txhash) values(?, ?)'
-    db.mysql.query(sql, [userid, hash], (err, result) => {
+    var sql = 'insert into txhash (userid, txhash, toAddress) values(?, ?, ?)'
+    db.mysql.query(sql, [userid, hash, toAddress], (err, result) => {
       if (err) {
         return res.status(200).json({});
       }

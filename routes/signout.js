@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
   }
 })
 
-router.post('/signout_process', (req, res) => {
+router.post('/signout_process', async (req, res) => {
   let { userid } = req.session;
   let { id, password } = req.body;
   res.status(201).json({})
@@ -28,16 +28,15 @@ router.post('/signout_process', (req, res) => {
     bcrypt.compare(password, req.session.password, (err, value) => {
       if (value !== true) {
         return res.status(200).json({})
-      }
-
-      //탈퇴 회원으로 변경
-      if (value === true) {
+      } else {
+        //탈퇴 회원으로 변경
         var sql = 'UPDATE wallet_info SET isDeleted = 1, deleteDate = now() WHERE userid = ?'
         db.mysql.query(sql, [userid], (err, result) => {
-          if(err) {
-            console.log('에러란다')
+          console.log(result)
+          if (result.affectedRows === 1) {
+            console.log('탈퇴 성공')
           } else {
-            return res.status(202).json({})
+            console.log('에러란다')
           }
         });
       }

@@ -39,11 +39,11 @@ class Txlist extends Component {
         super(props);
         this.logOut = this.logOut.bind(this);
         this.state = {
-            mypage: {txhash_list: []}
+            mypage: {lists: []}
         };
     }
     componentDidMount() {
-        fetch('/main', {
+        fetch('/txlist', {
             method: 'GET'
         })
             .then(res => res.json())
@@ -51,7 +51,7 @@ class Txlist extends Component {
     }
     logOut() {
         axios
-            .get('/main/session_destroy')
+            .get('/txlist/session_destroy')
             .then(res => {
                 window.location.href = '/'
             })
@@ -69,17 +69,17 @@ class Txlist extends Component {
                     <Table aria-label="customized table">
                         <TableHead>
                             <TableRow>
-                                <StyledTableCell>Transactions</StyledTableCell>
+                                <StyledTableCell>Transactions Hash</StyledTableCell>
                                 <StyledTableCell align="right">To</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.mypage.txhash_list.map(tx_list => (
-                                <StyledTableRow key={tx_list}>
+                            {this.state.mypage.lists.map(list => (
+                                <StyledTableRow key={list}>
                                     <StyledTableCell component="th" scope="row">
-                                        {tx_list}
+                                        {list.txhash}
                                     </StyledTableCell>
-                                    <StyledTableCell align="right">몬나</StyledTableCell>
+                                    <StyledTableCell align="right">{list.toAddress}</StyledTableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>

@@ -29,29 +29,29 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
-const Home = styled.div`
+const List = styled.div`
     width: 100%;
     margin: 2rem;
 `
 
-class Uinfo extends Component {
+class Usertx extends Component {
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
         this.state = {
-            userpage: { lists: [] }
+            userTx: { lists: [] }
         };
     }
     componentDidMount() {
-        fetch('/uinfo', {
+        fetch('/usertx', {
             method: 'GET'
         })
             .then(res => res.json())
-            .then(userpage => this.setState({ userpage }));
+            .then(userTx => this.setState({ userTx }));
     }
     logOut() {
         axios
-            .get('/uinfo/session_destroy')
+            .get('/usertx/session_destroy')
             .then(res => {
                 window.location.href = '/'
             })
@@ -59,32 +59,32 @@ class Uinfo extends Component {
                 console.log(err);
             });
     }
-    render() {
 
+    render() {
         return (
-            <Home>
-                <h2>User_info</h2>
+            <List>
+                <h2>UserTx List</h2>
 
                 <TableContainer component={Paper}>
                     <Table aria-label="customized table">
                         <TableHead>
                             <TableRow>
                                 <StyledTableCell>User Id</StyledTableCell>
-                                <StyledTableCell>Create Date</StyledTableCell>
-                                <StyledTableCell>Deleted Date</StyledTableCell>
+                                <StyledTableCell align="right">User Tx</StyledTableCell>                                
+                                <StyledTableCell align="right">User toAddress</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.userpage.lists.map(list => (
+                            {this.state.userTx.lists.map(list => (
                                 <StyledTableRow key={list.userid}>
                                     <StyledTableCell component="th" scope="row">
                                         {list.userid}
                                     </StyledTableCell>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.createDate}
+                                    <StyledTableCell align="right">
+                                        {list.txhash}
                                     </StyledTableCell>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.deleteDate}
+                                    <StyledTableCell align="right">
+                                        {list.toAddress}
                                     </StyledTableCell>
                                 </StyledTableRow>
                             ))}
@@ -92,13 +92,11 @@ class Uinfo extends Component {
                     </Table>
                 </TableContainer>
                 <div>
-                    <button type="button"><Link to="/usertx">{'Tx 현황'}</Link></button>
-                    <button type="button"><Link to="/userout">{'User 강퇴'}</Link></button>
-                    <button type="button" onClick={this.logOut} >로그아웃</button>
+                    <button type="button"><Link to="/uinfo">{'Home'}</Link></button>
                 </div>
-            </Home>
+            </List>
         );
     }
 }
 
-export default Uinfo;
+export default Usertx;

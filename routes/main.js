@@ -42,7 +42,7 @@ router.post('/deposit', async (req, res) => {
     let { userid } = req.session;
     let { result } = req.body;
     result = result.substring(0, 67)
-    db.mysql.query('INSERT INTO txhash(userid, txhash) values(?, ?)', [userid, result], 
+    db.mysql.query('INSERT INTO txhash(userid, txhash, toAddress) values(?, ?, null)', [userid, result], 
     await function (err, result) {
       return res.json({})
     })

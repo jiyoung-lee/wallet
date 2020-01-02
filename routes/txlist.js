@@ -14,17 +14,17 @@ router.get('/', async (req, res) => {
         return res.redirect('/')
     }
 
-    var sql = 'select txhash from txhash where userid = ?'
+    var sql = 'select txhash, toAddress from txhash where userid = ? and not toAddress in(null)'
     db.mysql.query(sql, [userid], (err, result) => {
         if (err) {
             return res.render('err')
         }
-        //let TxHashList = result[0].txhash;
-        let txhash_list = [];
+
+        let lists = [];
         for (let i = 0; i < result.length; i++) {
-            txhash_list.push(result[i].txhash)
+            lists.push(result[i])
         }
-        const mypage = {txhash_list};
+        const mypage = {lists};
         return res.json(mypage);
     });
 });

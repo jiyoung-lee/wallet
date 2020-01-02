@@ -15,5 +15,6 @@ CREATE TABLE `txhash`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `userid` VARCHAR(100) NOT NULL,
   `txhash` VARCHAR(255) NOT NULL,
+  `toAddress` VARCHAR(255) NULL,
   PRIMARY KEY (`id`)
 );
