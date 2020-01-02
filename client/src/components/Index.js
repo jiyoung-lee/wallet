@@ -58,7 +58,7 @@ class Index extends Component {
     handlePasswordChange(e) {
         this.setState({ password: e.target.value })
     }
-    
+
     render() {
         return (
             <Container component="main" maxWidth="xs">

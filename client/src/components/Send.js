@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
-const Pass = styled.div`
-    width: 100%;
-    text-align: center;
+const Paper  = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+`
+const Form  = styled.div`
+  width: 100%;
 `
 
 class Send extends Component {
@@ -58,20 +70,70 @@ class Send extends Component {
     }
     render() {
         return (
-            <Pass>
-                <div>
-                    <h2>Send</h2>
-                    <form>
-                        <input type="text" name="toAddress" placeholder="보낼 주소" onChange={this.handleAddressChange} /><br />
-                        <input type="text" name="value" placeholder="보낼 수량" onChange={this.handleValueChange} /><br />
-                        <input type="text" name="gasPrice" placeholder="수수료" onChange={this.handleGasChange} />
-                    </form><br />
-                    <div>
-                        <button type="button" onClick={this.Spend}>Send</button>
-                        <button type="button"><Link to="/main">{'Main'}</Link></button>
-                    </div>
-                </div>
-            </Pass>
+            <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Paper>
+              <Avatar>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Send
+              </Typography>
+              <Form>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="toAddress"
+                  label="toAddress"
+                  name="toAddress"
+                  type="text"
+                  onChange={this.handleAddressChange}
+                  autoFocus
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="value"
+                  label="value"
+                  name="value"
+                  type="text"
+                  onChange={this.handleValueChange}
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="gasPrice"
+                  label="gasPrice"
+                  name="gasPrice"
+                  type="text"
+                  onChange={this.handleGasChange}
+                />
+                <Button
+                  type="button"
+                  fullWidth
+                  variant="contained"
+                  onClick={this.Spend}
+                  color="primary"
+                >
+                  Send
+                </Button>
+                
+                <Grid container>
+                  <Grid item>
+                    <Link to="/main" variant="body2">
+                      {"Main"}
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Form>
+            </Paper>
+          </Container>
         );
     }
 }

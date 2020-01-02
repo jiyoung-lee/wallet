@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
-const Home = styled.div`
-    width: 100%;
-    margin: 2rem;
+const Paper  = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+`
+const Form  = styled.div`
+  width: 100%;
 `
 
 class Signout extends Component {
@@ -50,17 +62,59 @@ class Signout extends Component {
     render() {
 
         return (
-            <Home>
-                <h2>Signout</h2>
-                <form>
-                    <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
-                    <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} />
-                </form><br/>
-                <div>
-                    <button type="button" onClick={this.drop} >탈퇴하기</button>
-                    <button type="button"><Link to="/main">{'취소하기'}</Link></button>
-                </div>
-            </Home>
+            <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Paper>
+              <Avatar>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Sign Out
+              </Typography>
+              <Form>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="userid"
+                  label="userid"
+                  name="userid"
+                  type="text"
+                  onChange={this.handleIdChange}
+                  autoFocus
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="password"
+                  label="Password"
+                  name="password"
+                  type="password"
+                  onChange={this.handlePasswordChange}
+                />
+                <Button
+                  type="button"
+                  fullWidth
+                  variant="contained"
+                  onClick={this.drop}
+                  color="primary"
+                >
+                  Sign Out
+                </Button>
+                
+                <Grid container>
+                  <Grid item>
+                    <Link to="/main" variant="body2">
+                      {"Main"}
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Form>
+            </Paper>
+          </Container>
         );
     }
 }

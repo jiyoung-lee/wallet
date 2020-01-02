@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
         for (let i = 0; i < result.length; i++) {
             lists.push(result[i])
         }
-        console.log(lists)
         const userTx = {lists};
         return res.json(userTx);
     });

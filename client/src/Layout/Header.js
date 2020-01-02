@@ -11,7 +11,7 @@ const Paper  = styled.div`
 class Header extends Component {
     render() {
         return (
-            <Container component="main" maxWidth="xs">
+            <Container>
                 <Paper>
                     <h1>EtherWallet</h1>    
                 </Paper>   
