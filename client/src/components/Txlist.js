@@ -75,7 +75,7 @@ class Txlist extends Component {
                         </TableHead>
                         <TableBody>
                             {this.state.mypage.lists.map(list => (
-                                <StyledTableRow key={list}>
+                                <StyledTableRow key={list.txhash}>
                                     <StyledTableCell component="th" scope="row">
                                         {list.txhash}
                                     </StyledTableCell>

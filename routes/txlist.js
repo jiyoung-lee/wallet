@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         return res.redirect('/')
     }
 
-    var sql = 'select txhash, toAddress from txhash where userid = ? and not toAddress in(null)'
+    var sql = 'select txhash, toAddress from txhash where userid = ?'
     db.mysql.query(sql, [userid], (err, result) => {
         if (err) {
             return res.render('err')
