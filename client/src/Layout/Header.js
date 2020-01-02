@@ -1,22 +1,20 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import Container from '@material-ui/core/Container';
 
-const Container = styled.div`
-    width: 100%;
-    border-bottom: 2px solid black;
+const Paper  = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  margin-bottom: 1rem;
 `
-const Search = styled.div`
-    width: 100%;
-    text-align: center;
-`
-
 class Header extends Component {
     render() {
         return (
-            <Container>
-                <Search>
-                    <h1>EtherWallet</h1>
-                </Search>
+            <Container component="main" maxWidth="xs">
+                <Paper>
+                    <h1>EtherWallet</h1>    
+                </Paper>   
             </Container>
         );
     }

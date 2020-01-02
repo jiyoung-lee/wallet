@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
-const Signin = styled.div`
-    width: 100%;
-    text-align: center;
+const Paper  = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+`
+const Form  = styled.div`
+  width: 100%;
 `
 
 class Master extends Component {
@@ -48,19 +60,59 @@ class Master extends Component {
     }
     render() {
         return (
-            <Signin>
-                <div>
-                    <h2>Master_Login</h2>
-                    <form>
-                        <input type="text" name="id" placeholder="userid" onChange={this.handleIdChange} /><br />
-                        <input type="password" name="pw" placeholder="password" onChange={this.handlePasswordChange} />
-                    </form><br/>
-                    <div>
-                        <button type="button" onClick={this.logIn} >logIn</button>
-                        <button type="button"><Link to="/">{'Index'}</Link></button>
-                    </div>
-                </div>
-            </Signin>
+            <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Paper>
+              <Avatar>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Master_Login
+              </Typography>
+              <Form>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="userid"
+                  label="userid"
+                  name="userid"
+                  type="text"
+                  onChange={this.handleIdChange}
+                  autoFocus
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="password"
+                  label="Password"
+                  name="password"
+                  type="password"
+                  onChange={this.handlePasswordChange}
+                />
+                <Button
+                  type="button"
+                  fullWidth
+                  variant="contained"
+                  onClick={this.logIn}
+                  color="primary"
+                >
+                  logIn
+                </Button>
+                
+                <Grid container>
+                  <Grid item>
+                    <Link to="/" variant="body2">
+                      {"Index"}
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Form>
+            </Paper>
+          </Container>
         );
     }
 }
