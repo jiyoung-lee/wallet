@@ -16,6 +16,9 @@ const Paper = styled.div`
   flex-direction: column;
   align-items: center;  
 `
+const Title = styled.div` 
+  margin: 3rem 0;
+`
 const Form = styled.div`
   width: 100%;
 `
@@ -58,18 +61,35 @@ class Master extends Component {
   handlePasswordChange(e) {
     this.setState({ password: e.target.value })
   }
+  
   render() {
+    const avatar = {
+      marginBottom: 8,
+      backgroundColor: '#3F51B5'
+    }
+    const styled = {
+      textDecoration: 'none',
+      color: '#3F51B5',
+      fontSize: 15
+    }
+    const submit = {
+      margin: (3, 0, 2)
+    }
+    const form = {
+      marginTop: 1
+    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Paper>
-          <Avatar>
+          <Title />
+          <Avatar style={avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Master_Login
           </Typography>
-          <Form>
+          <Form style={form}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -97,6 +117,7 @@ class Master extends Component {
               type="button"
               fullWidth
               variant="contained"
+              style={submit}
               onClick={this.logIn}
               color="primary"
             >
@@ -104,7 +125,7 @@ class Master extends Component {
             </Button>
             <Grid container>
               <Grid item>
-                <Link to="/" variant="body2">Index</Link>
+                <Link to="/" variant="body2" style={styled}>Index</Link>
               </Grid>
             </Grid>
           </Form>

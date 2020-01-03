@@ -32,13 +32,15 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
-const Form = styled.div`
+const Papere = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-
-const List = styled.div`
+const Title = styled.div` 
+  margin-bottom: 1rem;
+`
+const Form = styled.div`
     width: 100%;
 `
 
@@ -67,16 +69,23 @@ class Usertx extends Component {
                 console.log(err);
             });
     }
-
     render() {
+        const styled = {
+            textDecoration: 'none',
+            color: '#212121',
+            fontSize: 15
+        }
         return (
             <Container component="main">
-                <Form>
-                    <List>
+                <Papere>
+                    <Title>
+                        <h1>EtherWallet</h1>
+                    </Title>
+                    <Form>
                         <Grid container>
                             <Grid item>
                                 <Button>
-                                    <Link to="/uinfo" variant="body2">Home</Link>
+                                    <Link to="/uinfo" variant="body2" style={styled}>Home</Link>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -106,8 +115,8 @@ class Usertx extends Component {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </List>
-                </Form>
+                    </Form>
+                </Papere>
             </Container>
         );
     }

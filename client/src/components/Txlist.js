@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -32,20 +31,21 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
-const Form = styled.div`
+const Papere = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-
-const List = styled.div`
+const Title = styled.div` 
+  margin-bottom: 1rem;
+`
+const Form = styled.div`
     width: 100%;
 `
 
 class Txlist extends Component {
     constructor(props) {
         super(props);
-        this.logOut = this.logOut.bind(this);
         this.state = {
             mypage: { lists: [] }
         };
@@ -57,22 +57,28 @@ class Txlist extends Component {
             .then(res => res.json())
             .then(mypage => this.setState({ mypage }));
     }
-    logOut() {
-        axios
-            .get('/txlist/session_destroy')
-            .then(res => {
-                window.location.href = '/'
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
 
     render() {
+        const styled = {
+            textDecoration: 'none',
+            color: '#212121',
+            fontSize: 15
+        }
+
         return (
             <Container component="main">
-                <Form>
-                    <List>
+                <Papere>
+                    <Title>
+                        <h1>EtherWallet</h1>
+                    </Title>
+                    <Form>
+                        <Grid container>
+                            <Grid item>
+                                <Button>
+                                    <Link to="/main" variant="body2" style={styled}>Home</Link>
+                                </Button>
+                            </Grid>
+                        </Grid>
                         <TableContainer component={Paper}>
                             <Table aria-label="customized table">
                                 <TableHead>
@@ -93,16 +99,8 @@ class Txlist extends Component {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Grid container>
-                            <Grid item>
-                                <Button>
-                                    <Link to="/main" variant="body2">Home</Link>
-                                </Button>
-                                <Button onClick={this.logOut}>logOut</Button>
-                            </Grid>
-                        </Grid>
-                    </List>
-                </Form>
+                    </Form>
+                </Papere>
             </Container>
         );
     }

@@ -32,13 +32,15 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
-const Form = styled.div`
+const Papere = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-
-const List = styled.div`
+const Title = styled.div` 
+  margin-bottom: 1rem;
+`
+const Form = styled.div`
     width: 100%;
 `
 
@@ -68,19 +70,30 @@ class Uinfo extends Component {
             });
     }
     render() {
+        const styled = {
+            textDecoration: 'none',
+            color: '#212121',
+            fontSize: 15
+        }
+        const sty = {
+            fontSize: 15
+        }
         return (
             <Container component="main">
-                <Form>
-                    <List>
+                <Papere>
+                    <Title>
+                        <h1>EtherWallet</h1>
+                    </Title>
+                    <Form>
                         <Grid container>
                             <Grid item>
                                 <Button>
-                                    <Link to="/usertx" variant="body2">User Tx</Link>
+                                    <Link to="/usertx" variant="body2" style={styled}>User Tx</Link>
                                 </Button>
                                 <Button>
-                                    <Link to="/userout" variant="body2">User Dropout</Link>
+                                    <Link to="/userout" variant="body2" style={styled}>User Dropout</Link>
                                 </Button>
-                                <Button onClick={this.logOut}>logOut</Button>
+                                <Button onClick={this.logOut} style={sty}>logOut</Button>
                             </Grid>
                         </Grid>
                         <TableContainer component={Paper}>
@@ -109,8 +122,8 @@ class Uinfo extends Component {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </List>
-                </Form>
+                    </Form>
+                </Papere>
             </Container>
         );
     }

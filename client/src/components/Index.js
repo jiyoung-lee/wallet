@@ -16,6 +16,9 @@ const Paper = styled.div`
   flex-direction: column;
   align-items: center;  
 `
+const Title = styled.div` 
+  margin: 3rem 0;
+`
 const Form = styled.div`
   width: 100%;
 `
@@ -60,17 +63,33 @@ class Index extends Component {
   }
 
   render() {
+    const avatar = {
+      marginBottom: 8,
+      backgroundColor: '#3F51B5'
+    }
+    const styled = {
+      textDecoration: 'none',
+      color: '#3F51B5',
+      fontSize: 15
+    }
+    const submit = {
+      margin: (3, 0, 2)
+    }
+    const form = {
+      marginTop: 1
+    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Paper>
-          <Avatar>
+          <Title />
+          <Avatar style={avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Form>
+          <Form style={form}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -98,6 +117,7 @@ class Index extends Component {
               type="button"
               fullWidth
               variant="contained"
+              style={submit}
               onClick={this.signIn}
               color="primary"
             >
@@ -105,10 +125,10 @@ class Index extends Component {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link to="/master" variant="body2">Master</Link>
+                <Link to="/master" variant="body2" style={styled}>Master</Link>
               </Grid>
               <Grid item>
-                <Link to="/create" variant="body2">Sign Up</Link>
+                <Link to="/create" variant="body2" style={styled}>Sign Up</Link>
               </Grid>
             </Grid>
           </Form>

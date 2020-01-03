@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Header from './Layout/Header';
 import Router from './Routes/Routes';
+import Container from '@material-ui/core/Container';
 
 const Layout = styled.div`
   margin: 0 auto;
@@ -14,10 +14,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Layout>
-          <Header />
-          <Router />
-        </Layout>
+        <Container>
+          <Layout>
+            <Router />
+          </Layout>
+        </Container>
       </div>
     );
   }
