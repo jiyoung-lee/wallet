@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import copy from "copy-to-clipboard";
 import { Link } from 'react-router-dom';
+import copy from "copy-to-clipboard";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 
-const Home = styled.div`
-    width: 100%;
-    margin: 2rem;
+const Paper  = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+`
+const Form  = styled.div`
+  width: 100%;
 `
 
 class Main extends Component {
@@ -72,34 +88,84 @@ class Main extends Component {
 
     }
     render() {
-
         return (
-            <Home>
-                <h2>MyPage</h2>
-                <form>
-                    <strong>userid : </strong>{this.state.mypage.userid}<br />
-                    <strong>Address : </strong>{this.state.mypage.public_key}
-                    <button onClick={this.handleCopy} disabled={this.state.btnText === "Copied!"}>
-                        {this.state.btnText}
-                    </button><br />
-                    <strong>Balance : </strong>{this.state.mypage.balance} ETH<br />
-                    <strong>txList : </strong><br />
-                    <ul> 
-                        <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>{this.state.mypage.txhash_list[0]}</a></li>
-                        <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>{this.state.mypage.txhash_list[1]}</a></li>
-                        <li><a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>{this.state.mypage.txhash_list[2]}</a></li>
-                    </ul>
-                    <br />
-                    <button type="button"><Link to="/txlist">{'tx 더보기'}</Link></button>
-                </form><br />
-                <div>
-                    <button type="button" onClick={this.getEther}>이더 얻기</button>
-                    <button type="button" onClick={this.logOut} >로그아웃</button>
-                    <button type="button"><Link to="/privatekey">{'Privatekey'}</Link></button>
-                    <button type="button"><Link to="/send">{'Send'}</Link></button>
-                    <button type="button"><Link to="/signout">{'탈퇴'}</Link></button>
-                </div>
-            </Home>
+        <Container component="main">
+            <Paper>
+                <Form>
+                    <List component="nav" aria-label="main mailbox folders">
+                        <ListItem>
+                            <ListItemIcon>
+                                <PermIdentityIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={this.state.mypage.userid} />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <VpnKeyIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={this.state.mypage.public_key} />
+                            <Button onClick={this.handleCopy} disabled={this.state.btnText === "Copied!"}>
+                                {this.state.btnText}
+                            </Button>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <AccountBalanceIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={this.state.mypage.balance + " ETH"} />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <FormatListBulletedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="txList" />
+                            <Button>
+                                <Link to="/txlist" variant="body2">더보기</Link>
+                            </Button>
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="nav" aria-label="secondary mailbox folder">
+                        <ListItem>
+                            <ListItemText>     
+                                <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>
+                                    {this.state.mypage.txhash_list[0]}
+                                </a>
+                            </ListItemText> 
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText>     
+                                <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>
+                                    {this.state.mypage.txhash_list[1]}
+                                </a>
+                            </ListItemText>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText>     
+                                <a href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>
+                                    {this.state.mypage.txhash_list[2]}
+                                </a>
+                            </ListItemText>
+                        </ListItem>
+                    </List>
+                    <Grid container>
+                        <Grid item>
+                            <Button onClick={this.logOut}>logOut</Button>
+                            <Button onClick={this.getEther}>getEther</Button>
+                            <Button>
+                                <Link to="/privatekey" variant="body2">Privatekey</Link>
+                            </Button>
+                            <Button>
+                                <Link to="/send" variant="body2">Send</Link>
+                            </Button>
+                            <Button>
+                                <Link to="/signout" variant="body2">Deactivate</Link>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Form>
+            </Paper>
+        </Container>
         );
     }
 }

@@ -39,7 +39,7 @@ class Txlist extends Component {
         super(props);
         this.logOut = this.logOut.bind(this);
         this.state = {
-            mypage: {lists: []}
+            mypage: { lists: [] }
         };
     }
     componentDidMount() {
@@ -59,12 +59,11 @@ class Txlist extends Component {
                 console.log(err);
             });
     }
-    
+
     render() {
         return (
             <List>
                 <h2>Tx List</h2>
-
                 <TableContainer component={Paper}>
                     <Table aria-label="customized table">
                         <TableHead>
@@ -87,7 +86,7 @@ class Txlist extends Component {
                 </TableContainer>
                 <div>
                     <button type="button" onClick={this.logOut} >로그아웃</button>
-                    <button type="button"><Link to="/main">{'Home'}</Link></button>
+                    <button type="button"><Link to="/main">Home</Link></button>
                 </div>
             </List>
         );

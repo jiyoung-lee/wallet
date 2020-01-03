@@ -70,7 +70,7 @@ class Usertx extends Component {
                         <TableHead>
                             <TableRow>
                                 <StyledTableCell>User Id</StyledTableCell>
-                                <StyledTableCell align="right">User Tx</StyledTableCell>                                
+                                <StyledTableCell align="right">User Tx</StyledTableCell>
                                 <StyledTableCell align="right">User toAddress</StyledTableCell>
                             </TableRow>
                         </TableHead>
@@ -92,7 +92,7 @@ class Usertx extends Component {
                     </Table>
                 </TableContainer>
                 <div>
-                    <button type="button"><Link to="/uinfo">{'Home'}</Link></button>
+                    <button type="button"><Link to="/uinfo">Home</Link></button>
                 </div>
             </List>
         );

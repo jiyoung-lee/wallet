@@ -92,9 +92,9 @@ class Uinfo extends Component {
                     </Table>
                 </TableContainer>
                 <div>
-                    <button type="button"><Link to="/usertx">{'Tx 현황'}</Link></button>
-                    <button type="button"><Link to="/userout">{'User 강퇴'}</Link></button>
-                    <button type="button" onClick={this.logOut} >로그아웃</button>
+                    <button type="button"><Link to="/usertx">Tx 현황</Link></button>
+                    <button type="button"><Link to="/userout">User Dropout</Link></button>
+                    <button type="button" onClick={this.logOut}>logOut</button>
                 </div>
             </Home>
         );
