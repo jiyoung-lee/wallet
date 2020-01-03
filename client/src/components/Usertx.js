@@ -10,6 +10,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -29,9 +32,14 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const List = styled.div`
     width: 100%;
-    margin: 2rem;
 `
 
 class Usertx extends Component {
@@ -62,39 +70,45 @@ class Usertx extends Component {
 
     render() {
         return (
-            <List>
-                <h2>UserTx List</h2>
-
-                <TableContainer component={Paper}>
-                    <Table aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <StyledTableCell>User Id</StyledTableCell>
-                                <StyledTableCell align="right">User Tx</StyledTableCell>
-                                <StyledTableCell align="right">User toAddress</StyledTableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.state.userTx.lists.map(list => (
-                                <StyledTableRow key={list.userid}>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.userid}
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">
-                                        {list.txhash}
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">
-                                        {list.toAddress}
-                                    </StyledTableCell>
-                                </StyledTableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <div>
-                    <button type="button"><Link to="/uinfo">Home</Link></button>
-                </div>
-            </List>
+            <Container component="main">
+                <Form>
+                    <List>
+                        <Grid container>
+                            <Grid item>
+                                <Button>
+                                    <Link to="/uinfo" variant="body2">Home</Link>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <TableContainer component={Paper}>
+                            <Table aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <StyledTableCell>User Id</StyledTableCell>
+                                        <StyledTableCell align="right">User Transactions</StyledTableCell>
+                                        <StyledTableCell align="right">User toAddress</StyledTableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {this.state.userTx.lists.map(list => (
+                                        <StyledTableRow key={list.userid}>
+                                            <StyledTableCell component="th" scope="row">
+                                                {list.userid}
+                                            </StyledTableCell>
+                                            <StyledTableCell align="right">
+                                                {list.txhash}
+                                            </StyledTableCell>
+                                            <StyledTableCell align="right">
+                                                {list.toAddress}
+                                            </StyledTableCell>
+                                        </StyledTableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </List>
+                </Form>
+            </Container>
         );
     }
 }

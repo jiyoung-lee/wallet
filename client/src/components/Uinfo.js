@@ -10,6 +10,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -29,9 +32,14 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
-const Home = styled.div`
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const List = styled.div`
     width: 100%;
-    margin: 2rem;
 `
 
 class Uinfo extends Component {
@@ -60,43 +68,50 @@ class Uinfo extends Component {
             });
     }
     render() {
-
         return (
-            <Home>
-                <h2>User_info</h2>
-
-                <TableContainer component={Paper}>
-                    <Table aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <StyledTableCell>User Id</StyledTableCell>
-                                <StyledTableCell>Create Date</StyledTableCell>
-                                <StyledTableCell>Deleted Date</StyledTableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.state.userpage.lists.map(list => (
-                                <StyledTableRow key={list.userid}>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.userid}
-                                    </StyledTableCell>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.createDate}
-                                    </StyledTableCell>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.deleteDate}
-                                    </StyledTableCell>
-                                </StyledTableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <div>
-                    <button type="button"><Link to="/usertx">Tx 현황</Link></button>
-                    <button type="button"><Link to="/userout">User Dropout</Link></button>
-                    <button type="button" onClick={this.logOut}>logOut</button>
-                </div>
-            </Home>
+            <Container component="main">
+                <Form>
+                    <List>
+                        <Grid container>
+                            <Grid item>
+                                <Button>
+                                    <Link to="/usertx" variant="body2">User Tx</Link>
+                                </Button>
+                                <Button>
+                                    <Link to="/userout" variant="body2">User Dropout</Link>
+                                </Button>
+                                <Button onClick={this.logOut}>logOut</Button>
+                            </Grid>
+                        </Grid>
+                        <TableContainer component={Paper}>
+                            <Table aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <StyledTableCell>User Id</StyledTableCell>
+                                        <StyledTableCell align="center">Create Date</StyledTableCell>
+                                        <StyledTableCell align="right">Deleted Date</StyledTableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {this.state.userpage.lists.map(list => (
+                                        <StyledTableRow key={list.userid}>
+                                            <StyledTableCell component="th" scope="row">
+                                                {list.userid}
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center">
+                                                {list.createDate}
+                                            </StyledTableCell>
+                                            <StyledTableCell align="right">
+                                                {list.deleteDate}
+                                            </StyledTableCell>
+                                        </StyledTableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </List>
+                </Form>
+            </Container>
         );
     }
 }

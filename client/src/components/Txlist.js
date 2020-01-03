@@ -10,6 +10,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -29,9 +32,14 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const List = styled.div`
     width: 100%;
-    margin: 2rem;
 `
 
 class Txlist extends Component {
@@ -62,33 +70,40 @@ class Txlist extends Component {
 
     render() {
         return (
-            <List>
-                <h2>Tx List</h2>
-                <TableContainer component={Paper}>
-                    <Table aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <StyledTableCell>Transactions Hash</StyledTableCell>
-                                <StyledTableCell align="right">To</StyledTableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.state.mypage.lists.map(list => (
-                                <StyledTableRow key={list.txhash}>
-                                    <StyledTableCell component="th" scope="row">
-                                        {list.txhash}
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">{list.toAddress}</StyledTableCell>
-                                </StyledTableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <div>
-                    <button type="button" onClick={this.logOut} >로그아웃</button>
-                    <button type="button"><Link to="/main">Home</Link></button>
-                </div>
-            </List>
+            <Container component="main">
+                <Form>
+                    <List>
+                        <TableContainer component={Paper}>
+                            <Table aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <StyledTableCell>Transactions Hash</StyledTableCell>
+                                        <StyledTableCell align="right">To</StyledTableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {this.state.mypage.lists.map(list => (
+                                        <StyledTableRow key={list.txhash}>
+                                            <StyledTableCell component="th" scope="row">
+                                                {list.txhash}
+                                            </StyledTableCell>
+                                            <StyledTableCell align="right">{list.toAddress}</StyledTableCell>
+                                        </StyledTableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                        <Grid container>
+                            <Grid item>
+                                <Button>
+                                    <Link to="/main" variant="body2">Home</Link>
+                                </Button>
+                                <Button onClick={this.logOut}>logOut</Button>
+                            </Grid>
+                        </Grid>
+                    </List>
+                </Form>
+            </Container>
         );
     }
 }
