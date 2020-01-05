@@ -16,7 +16,7 @@ import Button from '@material-ui/core/Button';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: '#424242',
         color: theme.palette.common.white,
     },
     body: {
@@ -27,7 +27,7 @@ const StyledTableCell = withStyles(theme => ({
 const StyledTableRow = withStyles(theme => ({
     root: {
         '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.background.default,
+            backgroundColor: '#e0e0e0'
         },
     },
 }))(TableRow);
@@ -75,15 +75,21 @@ class Usertx extends Component {
             color: '#212121',
             fontSize: 15
         }
+        const button = {
+            marginBottom: 5,
+        }
+        const tit = {
+            color: '#4e342e'
+        }
         return (
             <Container component="main">
                 <Papere>
-                    <Title>
-                        <h1>EtherWallet</h1>
+                    <Title style={tit}>
+                        <h1>User Transactions</h1>
                     </Title>
                     <Form>
                         <Grid container>
-                            <Grid item>
+                            <Grid item style={button}>
                                 <Button>
                                     <Link to="/uinfo" variant="body2" style={styled}>Home</Link>
                                 </Button>
@@ -94,8 +100,8 @@ class Usertx extends Component {
                                 <TableHead>
                                     <TableRow>
                                         <StyledTableCell>User Id</StyledTableCell>
-                                        <StyledTableCell align="right">User Transactions</StyledTableCell>
-                                        <StyledTableCell align="right">User toAddress</StyledTableCell>
+                                        <StyledTableCell align="right">Transaction Hash</StyledTableCell>
+                                        <StyledTableCell align="right">To Address</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

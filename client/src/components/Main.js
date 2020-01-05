@@ -93,11 +93,14 @@ class Main extends Component {
     render() {
         const styled = {
             textDecoration: 'none',
-            color: '#212121'
+            color: '#795548'
         }
         const sty = {
             textDecoration: 'none',
             color: '#dc99a3'
+        }
+        const bt = {
+            color: '#795548'
         }
         const root = {
             maxWidth: 700
@@ -121,7 +124,7 @@ class Main extends Component {
                                     <VpnKeyIcon />
                                 </ListItemIcon>
                                 <ListItemText primary={this.state.mypage.public_key} />
-                                <Button onClick={this.handleCopy} disabled={this.state.btnText === "Copied!"}>
+                                <Button style={bt} onClick={this.handleCopy} disabled={this.state.btnText === "Copied!"}>
                                     {this.state.btnText}
                                 </Button>
                             </ListItem>
@@ -137,7 +140,7 @@ class Main extends Component {
                                 </ListItemIcon>
                                 <ListItemText primary="txList" />
                                 <Button>
-                                    <Link to="/txlist" variant="body2" style={styled}>더보기</Link>
+                                    <Link to="/txlist" variant="body2" style={styled}>More</Link>
                                 </Button>
                             </ListItem>
                         </List>
@@ -168,8 +171,8 @@ class Main extends Component {
                         <Divider />
                         <Grid container>
                             <Grid item>
-                                <Button onClick={this.logOut}>logOut</Button>
-                                <Button onClick={this.getEther}>getEther</Button>
+                                <Button style={bt} onClick={this.logOut}>logOut</Button>
+                                <Button style={bt} onClick={this.getEther}>getEther</Button>
                                 <Button>
                                     <Link to="/privatekey" variant="body2" style={styled}>Privatekey</Link>
                                 </Button>

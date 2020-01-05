@@ -16,7 +16,7 @@ import Button from '@material-ui/core/Button';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: '#424242',
         color: theme.palette.common.white,
     },
     body: {
@@ -27,7 +27,7 @@ const StyledTableCell = withStyles(theme => ({
 const StyledTableRow = withStyles(theme => ({
     root: {
         '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.background.default,
+            backgroundColor: '#e0e0e0'
         },
     },
 }))(TableRow);
@@ -76,17 +76,24 @@ class Uinfo extends Component {
             fontSize: 15
         }
         const sty = {
-            fontSize: 15
+            fontSize: 15,
+            color: '#212121'
+        }
+        const button = {
+            marginBottom: 5
+        }
+        const tit = {
+            color: '#4e342e'
         }
         return (
             <Container component="main">
                 <Papere>
-                    <Title>
-                        <h1>EtherWallet</h1>
+                    <Title style={tit}>
+                        <h1>User Information</h1>
                     </Title>
                     <Form>
                         <Grid container>
-                            <Grid item>
+                            <Grid item style={button}>
                                 <Button>
                                     <Link to="/usertx" variant="body2" style={styled}>User Tx</Link>
                                 </Button>

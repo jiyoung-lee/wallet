@@ -83,7 +83,8 @@ class Send extends Component {
       fontSize: 15
     }
     const submit = {
-      margin: (3, 0, 2)
+      margin: (3, 0, 2),
+      marginBottom: 10
     }
     const form = {
       marginTop: 1
