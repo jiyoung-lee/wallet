@@ -44,9 +44,6 @@ class Signout extends Component {
         if (res.status === 200) {
           alert('아이디 및 비밀번호를 다시 확인해주세요.')
         }
-        else if (res.status === 201) {
-          alert('정말로 탈퇴 하시겠습니까?')
-        }
         else if (res.status === 202) {
           alert('탈퇴 성공!')
           window.location.href = '/'
@@ -98,7 +95,7 @@ class Signout extends Component {
               required
               fullWidth
               id="userid"
-              label="userid"
+              label="Id"
               name="userid"
               type="text"
               onChange={this.handleIdChange}

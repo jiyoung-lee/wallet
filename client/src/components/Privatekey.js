@@ -98,7 +98,7 @@ class Privatekey extends Component {
               required
               fullWidth
               id="userid"
-              label="userid"
+              label="Id"
               name="userid"
               type="text"
               onChange={this.handleIdChange}

@@ -88,7 +88,7 @@ class Master extends Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Master_Login
+            Master
           </Typography>
           <Form style={form}>
             <TextField
@@ -97,7 +97,7 @@ class Master extends Component {
               required
               fullWidth
               id="userid"
-              label="userid"
+              label="Id"
               name="userid"
               type="text"
               onChange={this.handleIdChange}

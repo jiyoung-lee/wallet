@@ -18,7 +18,6 @@ router.get('/', (req, res, next) => {
 router.post('/signout_process', async (req, res) => {
   let { userid } = req.session;
   let { id, password } = req.body;
-  res.status(201).json({})
 
   //아이디 일치여부
   if (userid !== id) {
@@ -32,9 +31,10 @@ router.post('/signout_process', async (req, res) => {
         //탈퇴 회원으로 변경
         var sql = 'UPDATE wallet_info SET isDeleted = 1, deleteDate = now() WHERE userid = ?'
         db.mysql.query(sql, [userid], (err, result) => {
-          console.log(result)
           if (result.affectedRows === 1) {
-            console.log('탈퇴 성공')
+            req.session.destroy();
+            res.clearCookie('sid');
+            return res.status(202).json({})
           } else {
             console.log('에러란다')
           }

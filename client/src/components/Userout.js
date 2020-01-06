@@ -39,18 +39,17 @@ class Userout extends Component {
       })
       .then(res => {
         if (res.status === 200) {
-          alert('아이디를 다시 확인해주세요.')
-        }
-        else if (res.status === 201) {
-          alert('정말로 강퇴 하시겠습니까?')
+          alert('강퇴시킬 아이디를 다시 확인해주세요.')
         }
         else if (res.status === 202) {
           alert('강퇴 성공!')
           window.location.href = '/uinfo'
         }
       })
-      .catch(err => {
-        console.log(err);
+      .catch(error => {
+        if (error.response.status === 500) {
+          alert('존재하지 않는 회원입니다.')
+        }
       });
   }
   handleIdChange(e) {
@@ -91,7 +90,7 @@ class Userout extends Component {
               required
               fullWidth
               id="userid"
-              label="userid"
+              label="User Id"
               name="userid"
               type="text"
               onChange={this.handleIdChange}
