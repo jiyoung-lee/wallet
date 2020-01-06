@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('../db/db_info')
 const bodyParser = require('body-parser');
 
-
 router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get('/', async (req, res) => {
@@ -34,6 +33,5 @@ router.get('/session_destroy', (req, res) => {
     res.clearCookie('sid'); // 세션 쿠키 삭제
     res.redirect('/');
 })
-
 
 module.exports = router;

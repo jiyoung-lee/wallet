@@ -37,7 +37,7 @@ router.post('/send_process', async (req, res) => {
 
   let gwei = 9
   let privateKey = Buffer.from(privatekey.substring(2), 'hex');
-  
+
   let nonce = await web3.eth.getTransactionCount(public_key, "pending")
   let rawTx = {
     nonce: nonce,

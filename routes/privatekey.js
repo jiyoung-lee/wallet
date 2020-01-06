@@ -1,5 +1,4 @@
 const express = require('express');
-const Web3 = require('web3');
 const router = express.Router();
 const bcrypt = require('bcrypt-nodejs');
 const CryptoJS = require('crypto-js');
@@ -24,7 +23,7 @@ router.post('/account', (req, res) => {
         res.status(200).json({})
     } else {
         bcrypt.compare(password, sessPassword, (err, value) => {
-            if( value !== true ) {
+            if (value !== true) {
                 return res.status(200).json({})
             }
             if (value === true) {
@@ -37,6 +36,5 @@ router.post('/account', (req, res) => {
     }
 
 })
-
 
 module.exports = router;
