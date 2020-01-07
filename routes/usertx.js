@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         return res.redirect('/')
     }
 
-    var sql = 'select userid, txhash, toAddress from txhash where not userid in("1q2w3e4r") order by userid'
+    var sql = 'select userid, txhash, toAddress from txhash where not userid in("master") order by userid'
     db.mysql.query(sql, (err, result) => {
         if (err) {
             return res.render('err')

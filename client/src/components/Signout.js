@@ -7,9 +7,9 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 
 const Paper = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ class Signout extends Component {
   render() {
     const avatar = {
       marginBottom: 8,
-      backgroundColor: '#3F51B5'
+      backgroundColor: '#c51162'
     }
     const styled = {
       textDecoration: 'none',
@@ -72,7 +72,9 @@ class Signout extends Component {
     }
     const submit = {
       margin: (3, 0, 2),
-      marginBottom: 10
+      marginBottom: 10,
+      backgroundColor: '#c51162',
+      color: '#fce4ec',
     }
     const form = {
       marginTop: 1
@@ -83,7 +85,7 @@ class Signout extends Component {
         <Paper>
           <Title />
           <Avatar style={avatar}>
-            <LockOutlinedIcon />
+            <RemoveCircleOutlineIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Deactivate
@@ -118,7 +120,6 @@ class Signout extends Component {
               variant="contained"
               style={submit}
               onClick={this.drop}
-              color="primary"
             >
               Deactivate my account
             </Button>

@@ -88,7 +88,7 @@ class Index extends Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign In
           </Typography>
           <Form style={form}>
             <TextField
