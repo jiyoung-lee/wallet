@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     await web3.eth.getBalance(public_key, function (err, wei) {
         balance = web3.utils.fromWei(wei, 'ether')
     });
-    var sql = 'select txhash from txhash where userid = ?'
+    var sql = 'select txhash from txhash where userid = ? order by id desc'
     db.mysql.query(sql, [userid], function (err, result) {
         if (err) {
             return res.render('err')

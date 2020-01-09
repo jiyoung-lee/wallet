@@ -41,6 +41,7 @@ const Title = styled.div`
 `
 const Form = styled.div`
     width: 100%;
+    margin-bottom: 3rem;
 `
 
 class Txlist extends Component {
