@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
   }
 })
 
-router.post('/signout_process', async (req, res) => {
+router.post('/signout_process', (req, res) => {
   let { userId } = req.session;
   let { id, password } = req.body;
 

@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
   }
 })
 
-router.post('/userout_process', async (req, res) => {
+router.post('/userout_process', (req, res) => {
   let { id } = req.body;
 
   //아이디 일치여부

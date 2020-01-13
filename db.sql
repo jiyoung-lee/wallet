@@ -1,4 +1,5 @@
 CREATE TABLE `userInfo` (
+  `num` INT(11) NOT NULL AUTO_INCREMENT,
   `userId` VARCHAR(100) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `public_key` VARCHAR(255) NOT NULL,
@@ -6,7 +7,7 @@ CREATE TABLE `userInfo` (
   `createDate` DATETIME NOT NULL,  
   `deleteDate` DATETIME NULL, 
   `isDeleted` INT(11) NOT NULL,
-  PRIMARY KEY (`userid`)
+  PRIMARY KEY (`num`)
 );
 
 CREATE TABLE `txHash`(

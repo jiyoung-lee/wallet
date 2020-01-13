@@ -32,7 +32,6 @@ router.get('/', async (req, res) => {
                 txhash_list.push(result[i].txHash)
             }
         }
-        console.log(result.length)
         const mypage = { userId, public_key, balance, txhash_list };
         return res.json(mypage);
     });

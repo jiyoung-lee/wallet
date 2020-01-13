@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     let { userId, is_logined } = req.session;
 
     if (!is_logined) {
