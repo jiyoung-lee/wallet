@@ -7,14 +7,14 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get('/', async (req, res) => {
-    let { userid, is_logined } = req.session;
+    let { userId, is_logined } = req.session;
 
     if (!is_logined) {
         return res.redirect('/')
     }
 
-    var sql = 'select txhash, toAddress from txhash where userid = ? order by id desc'
-    db.mysql.query(sql, [userid], (err, result) => {
+    var sql = 'select txHash, toAddress from txHash where userId = ? order by num desc'
+    db.mysql.query(sql, [userId], (err, result) => {
         if (err) {
             return res.render('err')
         }

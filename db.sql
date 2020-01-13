@@ -1,20 +1,24 @@
-CREATE TABLE `wallet_info` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `userid` VARCHAR(100) NOT NULL UNIQUE,
+CREATE TABLE `userInfo` (
+  `userId` VARCHAR(100) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `public_key` VARCHAR(255) NOT NULL,
   `private_key` VARCHAR(255) NOT NULL UNIQUE, 
   `createDate` DATETIME NOT NULL,  
   `deleteDate` DATETIME NULL, 
-  `isDeleted` INT(11) NOT NULL,  
-  `master` INT(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `isDeleted` INT(11) NOT NULL,
+  PRIMARY KEY (`userid`)
 );
 
-CREATE TABLE `txhash`(
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `userid` VARCHAR(100) NOT NULL,
-  `txhash` VARCHAR(255) NOT NULL,
+CREATE TABLE `txHash`(
+  `num` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` VARCHAR(100) NOT NULL,
+  `txHash` VARCHAR(255) NOT NULL,
   `toAddress` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`num`)
+);
+
+CREATE TABLE `master`(
+  `userId` VARCHAR(100) NOT NULL,
+  `master` INT(11) NOT NULL,
+  PRIMARY KEY (`userId`)
 );

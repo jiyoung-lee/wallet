@@ -115,9 +115,9 @@ class Uinfo extends Component {
                                 </TableHead>
                                 <TableBody>
                                     {this.state.userpage.lists.map(list => (
-                                        <StyledTableRow key={list.userid}>
+                                        <StyledTableRow key={list.userId}>
                                             <StyledTableCell component="th" scope="row">
-                                                {list.userid}
+                                                {list.userId}
                                             </StyledTableCell>
                                             <StyledTableCell align="center">
                                                 {list.createDate}

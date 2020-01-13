@@ -24,7 +24,7 @@ router.post('/create_process', (req, res) => {
     let account = web3.eth.accounts.create();
     let password1 = bcrypt.hashSync(password)
     let privatekey1 = CryptoJS.AES.encrypt(account.privateKey, '123').toString();
-    let sql = 'insert into wallet_info(userid, password, public_key, private_key, createDate, deleteDate, isDeleted, master) values(?, ?, ?, ?, now(), null, 0, 0)';
+    let sql ='INSERT INTO userInfo(userId, password, public_key, private_key, createDate, deleteDate, isDeleted) VALUES(?, ?, ?, ?, now(), null, 0)';
     db.mysql.query(sql, [id, password1, account.address, privatekey1], (err, result) => {
         if (err) {
             return res.status(200).json({});

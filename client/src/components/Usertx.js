@@ -107,12 +107,12 @@ class Usertx extends Component {
                                 </TableHead>
                                 <TableBody>
                                     {this.state.userTx.lists.map(list => (
-                                        <StyledTableRow key={list.userid}>
+                                        <StyledTableRow key={list.userId}>
                                             <StyledTableCell component="th" scope="row">
-                                                {list.userid}
+                                                {list.userId}
                                             </StyledTableCell>
                                             <StyledTableCell align="right">
-                                                {list.txhash}
+                                                {list.txHash}
                                             </StyledTableCell>
                                             <StyledTableCell align="right">
                                                 {list.toAddress}

@@ -35,7 +35,7 @@ class Main extends Component {
         this.getEther = this.getEther.bind(this);
         this.handleCopy = this.handleCopy.bind(this);
         this.state = {
-            mypage: { userid: '', public_key: '', balance: '', txhash_list: [] },
+            mypage: { userId: '', public_key: '', balance: '', txhash_list: [] },
             result: '',
             btnText: 'Copy to Clipboard'
         };
@@ -117,7 +117,7 @@ class Main extends Component {
                                 <ListItemIcon>
                                     <PermIdentityIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={this.state.mypage.userid} />
+                                <ListItemText primary={this.state.mypage.userId} />
                             </ListItem>
                             <ListItem>
                                 <ListItemIcon>
@@ -146,27 +146,15 @@ class Main extends Component {
                         </List>
                         <Divider />
                         <List component="nav" aria-label="secondary mailbox folder">
-                            <ListItem>
-                                <ListItemText>
-                                    <a style={sty} href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[0]}>
-                                        {this.state.mypage.txhash_list[0]}
-                                    </a>
-                                </ListItemText>
-                            </ListItem>
-                            <ListItem>
-                                <ListItemText>
-                                    <a style={sty} href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[1]}>
-                                        {this.state.mypage.txhash_list[1]}
-                                    </a>
-                                </ListItemText>
-                            </ListItem>
-                            <ListItem>
-                                <ListItemText>
-                                    <a style={sty} href={"https://ropsten.etherscan.io/tx/" + this.state.mypage.txhash_list[2]}>
-                                        {this.state.mypage.txhash_list[2]}
-                                    </a>
-                                </ListItemText>
-                            </ListItem>
+                            {this.state.mypage.txhash_list.map(list => (
+                                <ListItem>
+                                    <ListItemText key={list}>
+                                        <a style={sty} href={"https://ropsten.etherscan.io/tx/" + list}>
+                                            {list}
+                                        </a>
+                                    </ListItemText>
+                                </ListItem>
+                            ))}
                         </List>
                         <Divider />
                         <Grid container>

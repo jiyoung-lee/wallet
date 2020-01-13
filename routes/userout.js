@@ -17,13 +17,13 @@ router.post('/userout_process', async (req, res) => {
   let { id } = req.body;
 
   //아이디 일치여부
-  var sql = 'select userid from wallet_info where userid = ?'
+  var sql = 'select userId from userInfo where userId = ?'
   db.mysql.query(sql, [id], (err, result) => {
-    if (result[0].userid !== id) {
+    if (result[0].userId !== id) {
       return res.status(200).json({})
     } else {
       //강퇴 회원으로 변경
-      var sql = 'UPDATE wallet_info SET isDeleted = 1, deleteDate = now() WHERE userid = ?'
+      var sql = 'UPDATE userInfo SET isDeleted = 1, deleteDate = now() WHERE userId = ?'
       db.mysql.query(sql, [id], (err, result) => {
         if (result.affectedRows === 1) {
           return res.status(202).json({})

@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 
     //userInfo
-    var sql = 'select userid, date_format(createDate, "%Y-%m-%d")createDate, date_format(deleteDate,"%Y-%m-%d")deleteDate from wallet_info where master=0'
+    var sql = 'select userId, date_format(createDate, "%Y-%m-%d")createDate, date_format(deleteDate,"%Y-%m-%d")deleteDate from userInfo'
     db.mysql.query(sql, function (err, result) {
         if (err) {
             return res.render('err')

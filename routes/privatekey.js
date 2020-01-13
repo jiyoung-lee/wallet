@@ -17,9 +17,9 @@ router.get('/', (req, res, next) => {
 
 router.post('/account', (req, res) => {
     let { id, password } = req.body;
-    let { userid, private_key } = req.session;
+    let { userId, private_key } = req.session;
     let sessPassword = req.session.password;
-    if (userid !== id) {
+    if (userId !== id) {
         res.status(200).json({})
     } else {
         bcrypt.compare(password, sessPassword, (err, value) => {

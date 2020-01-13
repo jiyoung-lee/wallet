@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/send_process', async (req, res) => {
-  let { private_key, public_key, userid } = req.session;
+  let { private_key, public_key, userId } = req.session;
   let { toAddress, value, gasPrice } = req.body;
 
   let privatekey = CryptoJS.AES.decrypt(private_key, '123').toString(CryptoJS.enc.Utf8);
@@ -57,8 +57,8 @@ router.post('/send_process', async (req, res) => {
       return res.status(203).json({});
     }
 
-    var sql = 'insert into txhash (userid, txhash, toAddress) values(?, ?, ?)'
-    db.mysql.query(sql, [userid, hash, toAddress], (err, result) => {
+    var sql = 'insert into txHash (userId, txHash, toAddress) values(?, ?, ?)'
+    db.mysql.query(sql, [userId, hash, toAddress], (err, result) => {
       if (err) {
         return res.status(200).json({});
       }

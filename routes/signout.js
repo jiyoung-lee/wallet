@@ -16,11 +16,11 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/signout_process', async (req, res) => {
-  let { userid } = req.session;
+  let { userId } = req.session;
   let { id, password } = req.body;
 
   //아이디 일치여부
-  if (userid !== id) {
+  if (userId !== id) {
     res.status(200).json({})
   } else {
     //비밀번호 일치여부
@@ -29,8 +29,8 @@ router.post('/signout_process', async (req, res) => {
         return res.status(200).json({})
       } else {
         //탈퇴 회원으로 변경
-        var sql = 'UPDATE wallet_info SET isDeleted = 1, deleteDate = now() WHERE userid = ?'
-        db.mysql.query(sql, [userid], (err, result) => {
+        var sql = 'UPDATE userInfo SET isDeleted = 1, deleteDate = now() WHERE userId = ?'
+        db.mysql.query(sql, [userId], (err, result) => {
           if (result.affectedRows === 1) {
             req.session.destroy();
             res.clearCookie('sid');

@@ -95,9 +95,9 @@ class Txlist extends Component {
                                 </TableHead>
                                 <TableBody>
                                     {this.state.mypage.lists.map(list => (
-                                        <StyledTableRow key={list.txhash}>
+                                        <StyledTableRow key={list.txHash}>
                                             <StyledTableCell component="th" scope="row">
-                                                {list.txhash}
+                                                {list.txHash}
                                             </StyledTableCell>
                                             <StyledTableCell align="right">{list.toAddress}</StyledTableCell>
                                         </StyledTableRow>

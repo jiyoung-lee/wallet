@@ -97,9 +97,9 @@ class Privatekey extends Component {
               margin="normal"
               required
               fullWidth
-              id="userid"
+              id="userId"
               label="Id"
-              name="userid"
+              name="userId"
               type="text"
               onChange={this.handleIdChange}
               autoFocus
