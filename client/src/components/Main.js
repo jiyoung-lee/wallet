@@ -147,8 +147,8 @@ class Main extends Component {
                         <Divider />
                         <List component="nav" aria-label="secondary mailbox folder">
                             {this.state.mypage.txhash_list.map(list => (
-                                <ListItem>
-                                    <ListItemText key={list}>
+                                <ListItem key={list}>
+                                    <ListItemText>
                                         <a style={sty} href={"https://ropsten.etherscan.io/tx/" + list}>
                                             {list}
                                         </a>

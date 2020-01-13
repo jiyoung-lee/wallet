@@ -17,16 +17,22 @@ router.get('/', async (req, res) => {
     await web3.eth.getBalance(public_key, function (err, wei) {
         balance = web3.utils.fromWei(wei, 'ether')
     });
-    var sql = 'select txHash from txHash where userId = ? order by num desc'
+    var sql = 'SELECT txHash FROM txHash WHERE userId = ? ORDER BY num DESC'
     db.mysql.query(sql, [userId], function (err, result) {
         if (err) {
             return res.render('err')
         }
-
         let txhash_list = [];
-        for (let i = 0; i < 3; i++) {
-            txhash_list.push(result[i].txHash)
+        if (result.length <= 3) {
+            for (let i = 0; i < result.length; i++) {
+                txhash_list.push(result[i].txHash)
+            }
+        } else {
+            for (let i = 0; i < 3; i++) {
+                txhash_list.push(result[i].txHash)
+            }
         }
+        console.log(result.length)
         const mypage = { userId, public_key, balance, txhash_list };
         return res.json(mypage);
     });

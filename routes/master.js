@@ -18,6 +18,9 @@ router.post('/master_process', (req, res) => {
     if (!result.length) {
       return res.status(200).json({})
     }
+    if (result[0].userId !== id) {
+      return res.status(200).json({})
+    }
     bcrypt.compare(password, result[0].password, (err, data) => {
       if (data === true) {
         req.session.is_logined = true;

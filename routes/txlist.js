@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
         if (err) {
             return res.render('err')
         }
-
         let lists = [];
         for (let i = 0; i < result.length; i++) {
             lists.push(result[i])
