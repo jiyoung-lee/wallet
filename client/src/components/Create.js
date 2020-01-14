@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
@@ -10,18 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
-const Paper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-`
-const Title = styled.div` 
-  margin: 3rem 0;
-`
-const Form = styled.div`
-  width: 100%;
-`
+import { Papere, Title, Form} from './reusuable/Form';
+import styles from "./reusuable/styles.module.css";
 
 class Create extends Component {
   constructor(props) {
@@ -64,34 +53,18 @@ class Create extends Component {
   }
 
   render() {
-    const avatar = {
-      marginBottom: 8,
-      backgroundColor: '#3F51B5'
-    }
-    const styled = {
-      textDecoration: 'none',
-      color: '#3F51B5',
-      fontSize: 15
-    }
-    const submit = {
-      margin: (3, 0, 2),
-      marginBottom: 10
-    }
-    const form = {
-      marginTop: 1
-    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Paper>
+        <Papere>
           <Title />
-          <Avatar style={avatar}>
+          <Avatar className={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Create Account
           </Typography>
-          <Form style={form}>
+          <Form className={styles.form}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -119,7 +92,7 @@ class Create extends Component {
               type="button"
               fullWidth
               variant="contained"
-              style={submit}
+              className={styles.submit}
               onClick={this.signUp}
               color="primary"
             >
@@ -127,11 +100,11 @@ class Create extends Component {
             </Button>
             <Grid container>
               <Grid item>
-                <Link to="/" variant="body2" style={styled}>Index</Link>
+                <Link to="/" variant="body2" className={styles.styled}>Index</Link>
               </Grid>
             </Grid>
           </Form>
-        </Paper>
+        </Papere>
       </Container>
     );
   }

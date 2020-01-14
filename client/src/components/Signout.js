@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
@@ -10,18 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-
-const Paper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-`
-const Title = styled.div` 
-  margin: 3rem 0;
-`
-const Form = styled.div`
-  width: 100%;
-`
+import { Papere, Title, Form} from './reusuable/Form';
 
 class Signout extends Component {
   constructor(props) {
@@ -82,7 +70,7 @@ class Signout extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Paper>
+        <Papere>
           <Title />
           <Avatar style={avatar}>
             <RemoveCircleOutlineIcon />
@@ -129,7 +117,7 @@ class Signout extends Component {
               </Grid>
             </Grid>
           </Form>
-        </Paper>
+        </Papere>
       </Container>
     );
   }

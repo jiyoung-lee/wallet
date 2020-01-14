@@ -1,0 +1,16 @@
+.avatar {
+    margin-bottom: 4rem;
+    background-color: #3F51B5;
+}
+.styled {
+    text-decoration: none;
+    color: #3F51B5;
+    font-size: 15;
+}
+.submit {
+    margin: 3, 0, 2;
+    margin-bottom: 5rem;
+}
+.form {
+    margin-top: 1rem;
+}

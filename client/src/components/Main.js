@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import copy from "copy-to-clipboard";
@@ -15,18 +14,7 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-
-const Paper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-`
-const Title = styled.div` 
-  margin-bottom: 1rem;
-`
-const Form = styled.div`
-  width: 100%;
-`
+import { Papere, Name, Form} from './reusuable/Form';
 
 class Main extends Component {
     constructor(props) {
@@ -107,10 +95,10 @@ class Main extends Component {
         }
         return (
             <Container component="main">
-                <Paper>
-                    <Title>
+                <Papere>
+                    <Name>
                         <h1>EtherWallet</h1>
-                    </Title>
+                    </Name>
                     <Form style={root}>
                         <List component="nav" aria-label="main mailbox folders">
                             <ListItem>
@@ -173,7 +161,7 @@ class Main extends Component {
                             </Grid>
                         </Grid>
                     </Form>
-                </Paper>
+                </Papere>
             </Container>
         );
     }
