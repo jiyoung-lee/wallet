@@ -9,8 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { Papere, Title, Form} from './reusuable/Form';
-import styles from "./reusuable/styles.module.css";
+import { Papere, Title, Form } from './reusuable/Form';
 
 class Create extends Component {
   constructor(props) {
@@ -53,18 +52,34 @@ class Create extends Component {
   }
 
   render() {
+    const avatar = {
+      marginBottom: 8,
+      backgroundColor: '#3F51B5'
+    }
+    const styled = {
+      textDecoration: 'none',
+      color: '#3F51B5',
+      fontSize: 15
+    }
+    const submit = {
+      margin: (3, 0, 2),
+      marginBottom: 10
+    }
+    const form = {
+      marginTop: 1
+    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Papere>
           <Title />
-          <Avatar className={styles.avatar}>
+          <Avatar style={avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Create Account
           </Typography>
-          <Form className={styles.form}>
+          <Form style={form}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -92,7 +107,7 @@ class Create extends Component {
               type="button"
               fullWidth
               variant="contained"
-              className={styles.submit}
+              style={submit}
               onClick={this.signUp}
               color="primary"
             >
@@ -100,7 +115,7 @@ class Create extends Component {
             </Button>
             <Grid container>
               <Grid item>
-                <Link to="/" variant="body2" className={styles.styled}>Index</Link>
+                <Link to="/" variant="body2" style={styled}>Index</Link>
               </Grid>
             </Grid>
           </Form>

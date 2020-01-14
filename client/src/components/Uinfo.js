@@ -10,7 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { StyledTableCell, StyledTableRow, Papere, Name, Form} from './reusuable/Form';
+import { StyledTableCell, StyledTableRow, Papere, Name, Form } from './reusuable/Form';
+import SplitButton from './button/Button';
 
 class Uinfo extends Component {
     constructor(props) {
@@ -61,7 +62,7 @@ class Uinfo extends Component {
                     </Name>
                     <Form>
                         <Grid container>
-                            <Grid item style={button}>
+                            <Grid item xs style={button}>
                                 <Button>
                                     <Link to="/usertx" variant="body2" style={styled}>User Tx</Link>
                                 </Button>
@@ -69,6 +70,9 @@ class Uinfo extends Component {
                                     <Link to="/userout" variant="body2" style={styled}>User Dropout</Link>
                                 </Button>
                                 <Button onClick={this.logOut} style={sty}>logOut</Button>
+                            </Grid>
+                            <Grid item>
+                                <SplitButton />
                             </Grid>
                         </Grid>
                         <TableContainer component={Paper}>
