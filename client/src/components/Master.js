@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { Papere, Title, Form} from './reusuable/Form';
+import Typogra from './typogra/Typogra'
+import Base from './button/BaseButton'
+import Field from './field/Field'
 
 class Master extends Component {
   constructor(props) {
@@ -60,10 +60,6 @@ class Master extends Component {
       color: '#3F51B5',
       fontSize: 15
     }
-    const submit = {
-      margin: (3, 0, 2),
-      marginBottom: 10
-    }
     const form = {
       marginTop: 1
     }
@@ -75,43 +71,13 @@ class Master extends Component {
           <Avatar style={avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Master
-          </Typography>
+          <Typogra name="Master" />
           <Form style={form}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="userId"
-              label="Id"
-              name="userId"
-              type="text"
-              onChange={this.handleIdChange}
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="password"
-              label="Password"
-              name="password"
-              type="password"
-              onChange={this.handlePasswordChange}
-            />
-            <Button
-              type="button"
-              fullWidth
-              variant="contained"
-              style={submit}
-              onClick={this.logIn}
-              color="primary"
-            >
-              logIn
-            </Button>
+
+            <Field label="Id" type="text" change={this.handleIdChange} />
+            <Field label="password" type="password" change={this.handlePasswordChange} />
+            
+            <Base name="logIn" click={this.logIn} />
             <Grid container>
               <Grid item>
                 <Link to="/" variant="body2" style={styled}>Index</Link>

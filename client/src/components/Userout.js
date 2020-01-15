@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import { Papere, Title, Form} from './reusuable/Form';
+import Typogra from './typogra/Typogra'
+import Base from './button/BaseButton'
+import Field from './field/Field'
+
 
 class Userout extends Component {
   constructor(props) {
@@ -46,18 +47,12 @@ class Userout extends Component {
   render() {
     const avatar = {
       marginBottom: 8,
-      backgroundColor: '#c51162'
+      backgroundColor: '#3F51B5'
     }
     const styled = {
       textDecoration: 'none',
       color: '#3F51B5',
       fontSize: 15
-    }
-    const submit = {
-      margin: (3, 0, 2),
-      marginBottom: 10,
-      backgroundColor: '#c51162',
-      color: '#fce4ec',
     }
     const form = {
       marginTop: 1
@@ -70,31 +65,13 @@ class Userout extends Component {
           <Avatar style={avatar}>
             <RemoveCircleOutlineIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            User Dropout
-          </Typography>
+          <Typogra name="User Dropout" />
           <Form style={form}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="userId"
-              label="User Id"
-              name="userId"
-              type="text"
-              onChange={this.handleIdChange}
-              autoFocus
-            />
-            <Button
-              type="button"
-              fullWidth
-              variant="contained"
-              style={submit}
-              onClick={this.drop}
-            >
-              Agree
-            </Button>
+
+            <Field label="User Id" type="text" change={this.handleIdChange} />
+
+            <Base name="Agree" click={this.drop} />
+
             <Grid container>
               <Grid item>
                 <Link to="/uinfo" variant="body2" style={styled}>Main</Link>

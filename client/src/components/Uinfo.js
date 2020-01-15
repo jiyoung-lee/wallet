@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { StyledTableCell, StyledTableRow, Papere, Name, Form } from './reusuable/Form';
-import SplitButton from './button/Button';
+import SplitButton from './button/SplitButton';
 
 class Uinfo extends Component {
     constructor(props) {
