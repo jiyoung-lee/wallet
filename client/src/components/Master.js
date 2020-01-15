@@ -7,9 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 import { Papere, Title, Form} from './reusuable/Form';
-import Typogra from './typogra/Typogra'
-import Base from './button/BaseButton'
-import Field from './field/Field'
+import Typogra from './display/typography/Typogra'
+import Base from './inputs/button/BaseButton'
+import Field from './inputs/field/Field'
 
 class Master extends Component {
   constructor(props) {

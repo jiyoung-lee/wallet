@@ -14,7 +14,8 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import { Papere, Name, Form} from './reusuable/Form';
+import { Papere, Form} from './reusuable/Form';
+import Name from './display/typography/Name';
 
 class Main extends Component {
     constructor(props) {
@@ -96,9 +97,7 @@ class Main extends Component {
         return (
             <Container component="main">
                 <Papere>
-                    <Name>
-                        <h1>EtherWallet</h1>
-                    </Name>
+                    <Name name="EtherWallet" />
                     <Form style={root}>
                         <List component="nav" aria-label="main mailbox folders">
                             <ListItem>
@@ -107,6 +106,7 @@ class Main extends Component {
                                 </ListItemIcon>
                                 <ListItemText primary={this.state.mypage.userId} />
                             </ListItem>
+
                             <ListItem>
                                 <ListItemIcon>
                                     <VpnKeyIcon />
@@ -116,12 +116,14 @@ class Main extends Component {
                                     {this.state.btnText}
                                 </Button>
                             </ListItem>
+
                             <ListItem>
                                 <ListItemIcon>
                                     <AccountBalanceIcon />
                                 </ListItemIcon>
                                 <ListItemText primary={this.state.mypage.balance + " ETH"} />
                             </ListItem>
+
                             <ListItem>
                                 <ListItemIcon>
                                     <FormatListBulletedIcon />
@@ -131,6 +133,7 @@ class Main extends Component {
                                     <Link to="/txlist" variant="body2" style={styled}>More</Link>
                                 </Button>
                             </ListItem>
+                            
                         </List>
                         <Divider />
                         <List component="nav" aria-label="secondary mailbox folder">

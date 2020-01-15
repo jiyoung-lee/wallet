@@ -15,9 +15,6 @@ export const Form = styled.div`
   width: 100%;
   margin-bottom: 3rem;
 `;
-export const Name = styled.div` 
-  margin-bottom: 1rem;
-`;
 export const StyledTableCell = withStyles(theme => ({
   head: {
       backgroundColor: '#424242',

@@ -8,9 +8,9 @@ import Container from '@material-ui/core/Container';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Papere, Title, Form} from './reusuable/Form';
-import Typogra from './typogra/Typogra'
-import Base from './button/BaseButton'
-import Field from './field/Field'
+import Typogra from './display/typography/Typogra'
+import Base from './inputs/button/BaseButton'
+import Field from './inputs/field/Field'
 
 class Privatekey extends Component {
   constructor(props) {

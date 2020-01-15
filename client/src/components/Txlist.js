@@ -9,7 +9,8 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { StyledTableCell, StyledTableRow, Papere, Name, Form} from './reusuable/Form';
+import { StyledTableCell, StyledTableRow, Papere, Form} from './reusuable/Form';
+import Name from './display/typography/Name';
 
 class Txlist extends Component {
     constructor(props) {
@@ -35,15 +36,10 @@ class Txlist extends Component {
         const button = {
             marginBottom: 5,
         }
-        const tit = {
-            color: '#4e342e'
-        }
         return (
             <Container component="main">
                 <Papere>
-                    <Name style={tit}>
-                        <h1>Transaction List</h1>
-                    </Name>
+                    <Name name="Transaction List" />
                     <Form>
                         <Grid container>
                             <Grid item style={button}>

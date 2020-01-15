@@ -7,9 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { Papere, Title, Form } from './reusuable/Form';
-import Typogra from './typogra/Typogra'
-import Base from './button/BaseButton'
-import Field from './field/Field'
+import Typogra from './display/typography/Typogra'
+import Base from './inputs/button/BaseButton'
+import Field from './inputs/field/Field'
 
 class Send extends Component {
   constructor(props) {
