@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
-import { Papere, Title, Form} from './reusuable/Form';
+import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
+import GridLink from './layout/Grid/GridLink'
 
 class Index extends Component {
   constructor(props) {
@@ -55,11 +54,6 @@ class Index extends Component {
       marginBottom: 8,
       backgroundColor: '#3F51B5'
     }
-    const styled = {
-      textDecoration: 'none',
-      color: '#3F51B5',
-      fontSize: 15
-    }
     const form = {
       marginTop: 1
     }
@@ -71,24 +65,13 @@ class Index extends Component {
           <Avatar style={avatar}>
             <LockOutlinedIcon />
           </Avatar>
-
           <Typogra name="Sign In" />
-
           <Form style={form}>
-
             <Field label="Id" type="text" change={this.handleIdChange} />
             <Field label="password" type="password" change={this.handlePasswordChange} />
-
             <Base name="Sign In" click={this.signIn} />
-
-            <Grid container>
-              <Grid item xs>
-                <Link to="/master" variant="body2" style={styled}>Master</Link>
-              </Grid>
-              <Grid item>
-                <Link to="/create" variant="body2" style={styled}>Sign Up</Link>
-              </Grid>
-            </Grid>
+            <GridLink link="/master" name="Master" />
+            <GridLink link="/create" name="Sign Up" />
           </Form>
         </Papere>
       </Container>

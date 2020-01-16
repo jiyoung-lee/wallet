@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -8,9 +7,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import { StyledTableCell, StyledTableRow, Papere, Form} from './reusuable/Form';
 import Name from './display/typography/Name';
+import GridButton from './layout/Grid/GridButton';
 
 class Txlist extends Component {
     constructor(props) {
@@ -28,11 +27,6 @@ class Txlist extends Component {
     }
 
     render() {
-        const styled = {
-            textDecoration: 'none',
-            color: '#212121',
-            fontSize: 15
-        }
         const button = {
             marginBottom: 5,
         }
@@ -43,9 +37,7 @@ class Txlist extends Component {
                     <Form>
                         <Grid container>
                             <Grid item style={button}>
-                                <Button>
-                                    <Link to="/main" variant="body2" style={styled}>Home</Link>
-                                </Button>
+                                <GridButton link="/main" name="Home" />
                             </Grid>
                         </Grid>
                         <TableContainer component={Paper}>

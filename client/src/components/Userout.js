@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-import { Papere, Title, Form} from './reusuable/Form';
+import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
-
+import GridLink from './layout/Grid/GridLink'
 
 class Userout extends Component {
   constructor(props) {
@@ -49,11 +47,6 @@ class Userout extends Component {
       marginBottom: 8,
       backgroundColor: '#3F51B5'
     }
-    const styled = {
-      textDecoration: 'none',
-      color: '#3F51B5',
-      fontSize: 15
-    }
     const form = {
       marginTop: 1
     }
@@ -67,16 +60,9 @@ class Userout extends Component {
           </Avatar>
           <Typogra name="User Dropout" />
           <Form style={form}>
-
             <Field label="User Id" type="text" change={this.handleIdChange} />
-
             <Base name="Agree" click={this.drop} />
-
-            <Grid container>
-              <Grid item>
-                <Link to="/uinfo" variant="body2" style={styled}>Main</Link>
-              </Grid>
-            </Grid>
+            <GridLink link="/uinfo" name="Main" />
           </Form>
         </Papere>
       </Container>

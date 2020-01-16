@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -13,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import { StyledTableCell, StyledTableRow, Papere, Form } from './reusuable/Form';
 import SplitButton from './inputs/button/SplitButton';
 import Name from './display/typography/Name';
+import GridButton from './layout/Grid/GridButton';
 
 class Uinfo extends Component {
     constructor(props) {
@@ -40,11 +40,6 @@ class Uinfo extends Component {
             });
     }
     render() {
-        const styled = {
-            textDecoration: 'none',
-            color: '#212121',
-            fontSize: 15
-        }
         const sty = {
             fontSize: 15,
             color: '#212121'
@@ -59,12 +54,8 @@ class Uinfo extends Component {
                     <Form>
                         <Grid container>
                             <Grid item xs style={button}>
-                                <Button>
-                                    <Link to="/usertx" variant="body2" style={styled}>User Tx</Link>
-                                </Button>
-                                <Button>
-                                    <Link to="/userout" variant="body2" style={styled}>User Dropout</Link>
-                                </Button>
+                                <GridButton link="/usertx" name="User Tx" />
+                                <GridButton link="/userout" name="User Dropout" />
                                 <Button onClick={this.logOut} style={sty}>logOut</Button>
                             </Grid>
                             <Grid item>

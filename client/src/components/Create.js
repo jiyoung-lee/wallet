@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
+import GridLink from './layout/Grid/GridLink'
 
 class Create extends Component {
   constructor(props) {
@@ -56,11 +55,6 @@ class Create extends Component {
       marginBottom: 8,
       backgroundColor: '#3F51B5'
     }
-    const styled = {
-      textDecoration: 'none',
-      color: '#3F51B5',
-      fontSize: 15
-    }
     const form = {
       marginTop: 1
     }
@@ -72,21 +66,12 @@ class Create extends Component {
           <Avatar style={avatar}>
             <LockOutlinedIcon />
           </Avatar>
-
           <Typogra name="Create Account" />
-          
           <Form style={form}>
-
             <Field label="Id" type="text" change={this.handleIdChange} />
             <Field label="password" type="password" change={this.handlePasswordChange} />
-            
             <Base name="Sign up" click={this.signUp} />
-
-            <Grid container>
-              <Grid item>
-                <Link to="/" variant="body2" style={styled}>Index</Link>
-              </Grid>
-            </Grid>
+            <GridLink link="/" name="Index" />
           </Form>
         </Papere>
       </Container>

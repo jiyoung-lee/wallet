@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import copy from "copy-to-clipboard";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -16,6 +15,7 @@ import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import { Papere, Form} from './reusuable/Form';
 import Name from './display/typography/Name';
+import GridButton from './layout/Grid/GridButton';
 
 class Main extends Component {
     constructor(props) {
@@ -80,10 +80,6 @@ class Main extends Component {
     }
 
     render() {
-        const styled = {
-            textDecoration: 'none',
-            color: '#795548'
-        }
         const sty = {
             textDecoration: 'none',
             color: '#dc99a3'
@@ -129,9 +125,7 @@ class Main extends Component {
                                     <FormatListBulletedIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="txList" />
-                                <Button>
-                                    <Link to="/txlist" variant="body2" style={styled}>More</Link>
-                                </Button>
+                                <GridButton link="/txlist" name="More" />
                             </ListItem>
                             
                         </List>
@@ -152,15 +146,9 @@ class Main extends Component {
                             <Grid item>
                                 <Button style={bt} onClick={this.logOut}>logOut</Button>
                                 <Button style={bt} onClick={this.getEther}>getEther</Button>
-                                <Button>
-                                    <Link to="/privatekey" variant="body2" style={styled}>Privatekey</Link>
-                                </Button>
-                                <Button>
-                                    <Link to="/send" variant="body2" style={styled}>Send</Link>
-                                </Button>
-                                <Button>
-                                    <Link to="/signout" variant="body2" style={styled}>Deactivate</Link>
-                                </Button>
+                                <GridButton link="/privatekey" name="Privatekey" />
+                                <GridButton link="/send" name="Send" />
+                                <GridButton link="/signout" name="Deactivate" />
                             </Grid>
                         </Grid>
                     </Form>
