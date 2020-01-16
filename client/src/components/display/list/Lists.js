@@ -18,7 +18,6 @@ class Lists extends Component {
         this.handleCopy = this.handleCopy.bind(this);
         this.state = {
             mypage: { userId: '', public_key: '', balance: '', txhash_list: [] },
-            result: '',
             btnText: 'Copy to Clipboard'
         };
     }

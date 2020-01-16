@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
 import GridLink from './layout/Grid/GridLink'
+import RemoveAvatar from './display/avatar/RemoveAvatar'
 
 class Signout extends Component {
   constructor(props) {
@@ -48,23 +47,14 @@ class Signout extends Component {
   }
 
   render() {
-    const avatar = {
-      marginBottom: 8,
-      backgroundColor: '#3F51B5'
-    }
-    const form = {
-      marginTop: 1
-    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Papere>
           <Title />
-          <Avatar style={avatar}>
-            <RemoveCircleOutlineIcon />
-          </Avatar>
+          <RemoveAvatar />
           <Typogra name="Deactivate" />
-          <Form style={form}>
+          <Form>
             <Field label="Id" type="text" change={this.handleIdChange} />
             <Field label="password" type="password" change={this.handlePasswordChange} />
             <Base name="Deactivate my account" click={this.drop} />

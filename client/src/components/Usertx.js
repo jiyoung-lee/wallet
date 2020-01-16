@@ -8,16 +8,13 @@ import UserTxTable from './display/table/UserTxTable';
 
 class Usertx extends Component {
     render() {
-        const button = {
-            marginBottom: 5,
-        }
         return (
             <Container component="main">
                 <Papere>
                     <Name name="User Transactions" />
                     <Form>
                         <Grid container>
-                            <Grid item style={button}>
+                            <Grid item>
                                 <GridButton link="/uinfo" name="Home" />
                             </Grid>
                         </Grid>

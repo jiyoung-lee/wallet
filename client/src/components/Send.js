@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
 import GridLink from './layout/Grid/GridLink'
+import MailAvatar from './display/avatar/MailAvatar'
 
 class Send extends Component {
   constructor(props) {
@@ -60,23 +59,14 @@ class Send extends Component {
   }
 
   render() {
-    const avatar = {
-      marginBottom: 8,
-      backgroundColor: '#3F51B5'
-    }
-    const form = {
-      marginTop: 1
-    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Papere>
           <Title />
-          <Avatar style={avatar}>
-            <MailOutlineIcon />
-          </Avatar>
+          <MailAvatar />
           <Typogra name="Send" />
-          <Form style={form}>
+          <Form>
             <Field label="toAddress" type="text" change={this.handleAddressChange} />
             <Field label="value" type="text" change={this.handleValueChange} />
             <Field label="gasPrice" type="text" change={this.handleGasChange} />

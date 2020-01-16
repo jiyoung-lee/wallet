@@ -8,16 +8,13 @@ import TxTable from './display/table/TxTable';
 
 class Txlist extends Component {
     render() {
-        const button = {
-            marginBottom: 5
-        }
         return (
             <Container component="main">
                 <Papere>
                     <Name name="Transaction List" />
                     <Form>
                         <Grid container>
-                            <Grid item style={button}>
+                            <Grid item>
                                 <GridButton link="/main" name="Home" />
                             </Grid>
                         </Grid>

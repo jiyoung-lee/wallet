@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
 import GridLink from './layout/Grid/GridLink'
+import KeyAvatar from './display/avatar/KeyAvatar';
 
 class Privatekey extends Component {
   constructor(props) {
@@ -50,24 +49,15 @@ class Privatekey extends Component {
   }
 
   render() {
-    const avatar = {
-      marginBottom: 8,
-      backgroundColor: '#3F51B5'
-    }
-    const form = {
-      marginTop: 1
-    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Papere>
           <Title />
-          <Avatar style={avatar}>
-            <VpnKeyIcon />
-          </Avatar>
+          <KeyAvatar />
           <Typogra name="My Privatekey" />
           <ListItemText primary={this.state.pkey} />
-          <Form style={form}>
+          <Form>
             <Field label="Id" type="text" change={this.handleIdChange} />
             <Field label="password" type="password" change={this.handlePasswordChange} />
             <Base name="Agree" click={this.Auth} />

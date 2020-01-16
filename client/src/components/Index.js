@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 import { Papere, Title, Form } from './reusuable/Form';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
-import GridLink from './layout/Grid/GridLink'
+import IndexLink from './layout/Grid/IndexLink'
+import LockAvatar from './display/avatar/LockAvatar'
 
 class Index extends Component {
   constructor(props) {
@@ -50,28 +49,18 @@ class Index extends Component {
   }
 
   render() {
-    const avatar = {
-      marginBottom: 8,
-      backgroundColor: '#3F51B5'
-    }
-    const form = {
-      marginTop: 1
-    }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Papere>
           <Title />
-          <Avatar style={avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <LockAvatar />
           <Typogra name="Sign In" />
-          <Form style={form}>
+          <Form>
             <Field label="Id" type="text" change={this.handleIdChange} />
             <Field label="password" type="password" change={this.handlePasswordChange} />
             <Base name="Sign In" click={this.signIn} />
-            <GridLink link="/master" name="Master" />
-            <GridLink link="/create" name="Sign Up" />
+            <IndexLink link1="/master" name1="Master" link2="/create" name2="Sign Up" />
           </Form>
         </Papere>
       </Container>

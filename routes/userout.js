@@ -28,7 +28,7 @@ router.post('/userout_process', async (req, res) => {
         if (result.affectedRows === 1) {
           return res.status(202).json({})
         } else {
-          console.log('에러란다')
+          return res.status(201).json({})
         }
       });
     }

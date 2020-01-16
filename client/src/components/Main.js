@@ -3,17 +3,21 @@ import axios from 'axios';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import { Papere, Form } from './reusuable/Form';
+import { Papere, MainForm } from './reusuable/Form';
 import Name from './display/typography/Name';
 import GridButton from './layout/Grid/GridButton';
 import Lists from './display/list/Lists'
+import OnButton from './inputs/button/OnButton';
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
         this.getEther = this.getEther.bind(this);
+        this.state = {
+            mypage: {public_key: ''},
+            result: ''
+        };
     }
     logOut() {
         axios
@@ -54,29 +58,23 @@ class Main extends Component {
     }
 
     render() {
-        const bt = {
-            color: '#795548'
-        }
-        const root = {
-            maxWidth: 700
-        }
         return (
             <Container component="main">
                 <Papere>
                     <Name name="EtherWallet" />
-                    <Form style={root}>
+                    <MainForm>
                         <Lists />
                         <Divider />
                         <Grid container>
                             <Grid item>
-                                <Button style={bt} onClick={this.logOut}>logOut</Button>
-                                <Button style={bt} onClick={this.getEther}>getEther</Button>
+                                <OnButton click={this.logOut} name="logOut" />
+                                <OnButton click={this.getEther} name="getEther" />
                                 <GridButton link="/privatekey" name="Privatekey" />
                                 <GridButton link="/send" name="Send" />
                                 <GridButton link="/signout" name="Deactivate" />
                             </Grid>
                         </Grid>
-                    </Form>
+                    </MainForm>
                 </Papere>
             </Container>
         );

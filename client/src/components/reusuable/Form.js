@@ -15,6 +15,11 @@ export const Form = styled.div`
   width: 100%;
   margin-bottom: 3rem;
 `;
+export const MainForm = styled.div`
+  width: 100%;
+  margin-bottom: 3rem;
+  max-width: 47rem;
+`;
 export const StyledTableCell = withStyles(theme => ({
   head: {
       backgroundColor: '#424242',
