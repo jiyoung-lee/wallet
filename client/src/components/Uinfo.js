@@ -1,34 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { StyledTableCell, StyledTableRow, Papere, Form } from './reusuable/Form';
+import { Papere, Form } from './reusuable/Form';
 import SplitButton from './inputs/button/SplitButton';
 import Name from './display/typography/Name';
 import GridButton from './layout/Grid/GridButton';
+import UserTable from './display/table/UserTable';
 
 class Uinfo extends Component {
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
-        this.state = {
-            userpage: { lists: [] }
-        };
     }
-    componentDidMount() {
-        fetch('/uinfo', {
-            method: 'GET'
-        })
-            .then(res => res.json())
-            .then(userpage => this.setState({ userpage }));
-    }
+
     logOut() {
         axios
             .get('/uinfo/session_destroy')
@@ -42,7 +28,7 @@ class Uinfo extends Component {
     render() {
         const sty = {
             fontSize: 15,
-            color: '#212121'
+            color: '#795548'
         }
         const button = {
             marginBottom: 5
@@ -62,32 +48,7 @@ class Uinfo extends Component {
                                 <SplitButton />
                             </Grid>
                         </Grid>
-                        <TableContainer component={Paper}>
-                            <Table aria-label="customized table">
-                                <TableHead>
-                                    <TableRow>
-                                        <StyledTableCell>User Id</StyledTableCell>
-                                        <StyledTableCell align="center">Create Date</StyledTableCell>
-                                        <StyledTableCell align="right">Deleted Date</StyledTableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {this.state.userpage.lists.map(list => (
-                                        <StyledTableRow key={list.userId}>
-                                            <StyledTableCell component="th" scope="row">
-                                                {list.userId}
-                                            </StyledTableCell>
-                                            <StyledTableCell align="center">
-                                                {list.createDate}
-                                            </StyledTableCell>
-                                            <StyledTableCell align="right">
-                                                {list.deleteDate}
-                                            </StyledTableCell>
-                                        </StyledTableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                        <UserTable />
                     </Form>
                 </Papere>
             </Container>

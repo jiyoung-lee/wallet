@@ -28,10 +28,4 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/session_destroy', (req, res) => {
-    req.session.destroy();  // 세션 삭제
-    res.clearCookie('sid'); // 세션 쿠키 삭제
-    res.redirect('/');
-})
-
 module.exports = router;
