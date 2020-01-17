@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { Papere, Title, Form } from './reusuable/Form';
+import { Papere, Title, Form } from './reusuable/Styled';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
 import IndexLink from './layout/Grid/IndexLink'
-import LockAvatar from './display/avatar/LockAvatar'
+import IconAvatar from './display/avatar/IconAvatar'
 
 class Index extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class Index extends Component {
         <CssBaseline />
         <Papere>
           <Title />
-          <LockAvatar />
+          <IconAvatar mode={true} />
           <Typogra name="Sign In" />
           <Form>
             <Field label="Id" type="text" change={this.handleIdChange} />

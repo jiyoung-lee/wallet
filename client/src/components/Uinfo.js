@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { Papere, Form } from './reusuable/Form';
+import { Papere, Form } from './reusuable/Styled';
 import SplitButton from './inputs/button/SplitButton';
 import Name from './display/typography/Name';
 import GridButton from './layout/Grid/GridButton';

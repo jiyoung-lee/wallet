@@ -3,12 +3,12 @@ import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Papere, Title, Form } from './reusuable/Form';
+import { Papere, Title, Form } from './reusuable/Styled';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
 import GridLink from './layout/Grid/GridLink'
-import KeyAvatar from './display/avatar/KeyAvatar';
+import MainAvatar from './display/avatar/MainAvatar';
 
 class Privatekey extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class Privatekey extends Component {
         <CssBaseline />
         <Papere>
           <Title />
-          <KeyAvatar />
+          <MainAvatar main={false} />
           <Typogra name="My Privatekey" />
           <ListItemText primary={this.state.pkey} />
           <Form>

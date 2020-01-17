@@ -3,7 +3,7 @@ import axios from 'axios';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { Papere, MainForm } from './reusuable/Form';
+import { Papere, MainForm } from './reusuable/Styled';
 import Name from './display/typography/Name';
 import GridButton from './layout/Grid/GridButton';
 import Lists from './display/list/Lists'

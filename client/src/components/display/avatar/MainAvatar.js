@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
-class MailAvatar extends Component {
+class MainAvatar extends Component {
     render() {
         const avatar = {
             marginBottom: 8,
             backgroundColor: '#3F51B5'
         }
+        const mailAvatar = (
+            <MailOutlineIcon />
+        );
+        const keyAvatar = (
+            <VpnKeyIcon />
+        );
         return (
             <Avatar style={avatar}>
-                <MailOutlineIcon />
+                {this.props.main ? mailAvatar : keyAvatar}
             </Avatar>
         );
     }
 }
 
-export default MailAvatar;
+export default MainAvatar;

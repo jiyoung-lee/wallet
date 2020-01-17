@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { Papere, Title, Form } from './reusuable/Form';
+import { Papere, Title, Form } from './reusuable/Styled';
 import Typogra from './display/typography/Typogra'
 import Base from './inputs/button/BaseButton'
 import Field from './inputs/field/Field'
 import GridLink from './layout/Grid/GridLink'
-import MailAvatar from './display/avatar/MailAvatar'
+import MainAvatar from './display/avatar/MainAvatar'
 
 class Send extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class Send extends Component {
         <CssBaseline />
         <Papere>
           <Title />
-          <MailAvatar />
+          <MainAvatar main={true} />
           <Typogra name="Send" />
           <Form>
             <Field label="toAddress" type="text" change={this.handleAddressChange} />

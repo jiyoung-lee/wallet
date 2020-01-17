@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { Papere, Form } from './reusuable/Form';
+import { Papere, Form } from './reusuable/Styled';
 import Name from './display/typography/Name';
 import GridButton from './layout/Grid/GridButton';
 import UserTxTable from './display/table/UserTxTable';
